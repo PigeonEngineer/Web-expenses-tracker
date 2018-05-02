@@ -7,10 +7,11 @@ How to set-up on local:
   2.1 cmd> composer install
   2.2 cmd> copy .env.example .env
 3. Open the .env file
+
 change these lines:
-DB_DATABASE = <whatever your database is called>
-DB_USERNAME = <your username you used for the database>
-DB_PASSWORD = <the password you went with for the db>
+DB_DATABASE = whatever your database is called
+DB_USERNAME = your username you used for the database
+DB_PASSWORD = the password you went with for the db
 
 4. command prompt in the folder again:
   4.1 cmd>php artisan key:generate
