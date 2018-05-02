@@ -18,3 +18,13 @@ Route::get('/', function () {
 Route::get('about', function () {
     return view('about');
 });
+Route::resource('Budget', 'BudgetController');
+Route::resource('Category', 'CategoryController');
+Route::resource('Categorys_budget', 'Categorys_budgetController');
+Route::resource('Expense', 'ExpenseController');
+Route::resource('Setting', 'SettingController');
+Route::resource('Users_expense', 'Users_expenseController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
