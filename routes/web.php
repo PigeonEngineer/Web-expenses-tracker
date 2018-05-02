@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('about', function () {
     return view('about');
 });
+Route::get ('newHome', 'NewMainController@getmaincontr');
 Route::resource('Budget', 'BudgetController');
 Route::resource('Category', 'CategoryController');
 Route::resource('Categorys_budget', 'Categorys_budgetController');
