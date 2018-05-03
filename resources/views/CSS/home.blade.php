@@ -1,4 +1,5 @@
 
+<style>
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -47,3 +48,4 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+</style>
