@@ -10,8 +10,8 @@
     <!-- My own css and  JS -->
     <!--<script src="D:\Projekti\Web-expenses-tracker\resources\views\home.js"></script> -->
     <!--<link rel="stylesheet" type="text/css" href="D:\Projekti\Web-expenses-tracker\resources\views\CSS\home.css"> -->
-    <?php @include('JS.home') ?>
-    <?php @include('CSS.home') ?>
+    <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}" />
     <title>Quick draft</title>
   </head>
   <body>
@@ -60,6 +60,7 @@
 
  <div id="main">
    <h1>Hello, world!</h1>
+   <span onclick="openNav()">open</span>
 </div>
     
   
