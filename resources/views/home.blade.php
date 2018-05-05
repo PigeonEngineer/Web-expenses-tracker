@@ -16,7 +16,7 @@
   </head>
   <body>
 
-  <!---------------------------------------------------------------navbar---------------------------------------------- -->
+  <!--                                               -navbar                                         -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Expenses Tracker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
       <li class="nav-item">
         <a class="nav-link" href="http://localhost:8000/about">About</a>
       </li>
-      
+
     </ul>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,9 +46,9 @@
       </li>
   </div>
 </nav>
-<!-----------------------------------------navbar end-------------------------------------------------------------- -->
-    
-<!------------------------------------------sidebar---------------------------------------------------------- -->
+<!--                                        -navbar end                                                     -->
+
+<!--                                          sidebar                                                         -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">About</a>
@@ -56,8 +56,8 @@
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
-    
-<!----------------------------------------------main part of the page -------------------------- -->
+
+<!--                                          main part of the page                                         -->
  <div id="main">
    <h1>Hello, world!</h1>
    <span onclick="openNav()">open</span>
@@ -70,15 +70,49 @@
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </p>
 </div>
+<h1> The data of the currently logged in user</h1>
+<?php
+
+
+echo 'UserId:',$userId, '<br>';
+echo 'username: ',$username,  '<br>';
+
+foreach ($users_expenses as $categories) {
+$first = true;
+  foreach ($categories as $expense)
+  {
+    // TODO: get rid of ugly flag.
+    if ($first)
+    {
+      echo $expense->name, '<br>';
+      $first = false;
+      echo $expense->creationTimeStamp, PHP_EOL;
+      echo $expense->amount,PHP_EOL;
+      echo $expense->comments, PHP_EOL;
+      echo $expense->name, PHP_EOL;
+    }
+    else
+    {
+    echo $expense->creationTimeStamp, PHP_EOL;
+    echo $expense->amount,PHP_EOL;
+    echo $expense->comments, PHP_EOL;
+    echo $expense->name, PHP_EOL;
+    echo '<br>';
+  }
+  }
+
+}
+// dd($users_expenses);
+?>
 </div>
-    
-  
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    
+
   </body>
 </html>

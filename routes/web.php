@@ -28,4 +28,4 @@ Route::resource('Users_expense', 'Users_expenseController');
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
