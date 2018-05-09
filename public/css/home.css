@@ -47,3 +47,8 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+#ham i:hover {
+    color: rgb(204, 65, 31);
+    cursor: pointer;
+}

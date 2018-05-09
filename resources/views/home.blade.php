@@ -7,17 +7,20 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <!-- My own css and  JS -->
-    <!--<script src="D:\Projekti\Web-expenses-tracker\resources\views\home.js"></script> -->
-    <!--<link rel="stylesheet" type="text/css" href="D:\Projekti\Web-expenses-tracker\resources\views\CSS\home.css"> -->
     <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
     <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}" />
     <title>Quick draft</title>
   </head>
   <body>
 
-  <!--                                               -navbar                                         -->
+  <!--    -------------------------------- -navbar    ---------------------------------------------------- -->
+
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div id="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> </div>
+ 
   <a class="navbar-brand" href="#">Expenses Tracker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,7 +49,7 @@
       </li>
   </div>
 </nav>
-<!--                                        -navbar end                                                     -->
+<!--          ------------              -navbar end             ---                                        -->
 
 <!--                                          sidebar                                                         -->
 <div id="mySidenav" class="sidenav">
@@ -60,7 +63,6 @@
 <!--                                          main part of the page                                         -->
  <div id="main">
    <h1>Hello, world!</h1>
-   <span onclick="openNav()">open</span>
    <div class="jumbotron">
   <h1 class="display-4">Hello, world!</h1>
   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
