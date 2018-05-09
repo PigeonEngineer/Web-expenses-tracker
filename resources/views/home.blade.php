@@ -19,7 +19,7 @@
 
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div id="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> </div>
+  <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> </div>
  
   <a class="navbar-brand" href="#">Expenses Tracker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,24 +29,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="http://localhost:8000/about">About</a>
       </li>
-
     </ul>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My Account
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+  <div class="btn-group">
+      <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <?php echo $username; ?>
+      </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <button class="dropdown-item" type="button">Action</button>
+      <button class="dropdown-item" type="button">Another action</button>
+      <button class="dropdown-item" type="button">Something else here</button>
+    </div>
+ </div>
   </div>
 </nav>
 <!--          ------------              -navbar end             ---                                        -->
@@ -61,51 +59,88 @@
 </div>
 
 <!--                                          main part of the page                                         -->
- <div id="main">
-   <h1>Hello, world!</h1>
-   <div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
+<div id="main">
+        <!--    --------------the grid system------------------------ -->
+  <div class="container">
+      <!--   -------------------row 1 --------------------------- --> 
+    <div class="row">
+      <div class="col">
+        <h1>Categories at a glance:</h1>
+      </div>
+    </div>
+        <!--   -------------------row 2 --------------------------- --> 
+    <div class="row">
+      <div class="col-6">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+<!-- --------------------------------------------------- row 3 ------------------- -->
+    <div class="row">
+      <div class="col-6">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, world!</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+   <!-- --------------------------------------------------- row 4 ------------------- -->
+    <div class="row">
+      <div class="col-12">
+        <h1> The data of the currently logged in user:</h1>
+        <?php
+          echo 'UserId:',$userId, '<br>';
+          echo 'username: ',$username,  '<br>';
+          foreach ($users_expenses as $categories) {
+          $first = true;
+            foreach ($categories as $expense)
+            {
+              // TODO: get rid of ugly flag.
+              if ($first)
+              {
+                echo $expense->name, '<br>';
+                $first = false;
+                echo $expense->creationTimeStamp, PHP_EOL;
+                echo $expense->amount,PHP_EOL;
+                echo $expense->comments, PHP_EOL;
+                echo $expense->name, PHP_EOL;
+              }
+              else
+              {
+              echo $expense->creationTimeStamp, PHP_EOL;
+              echo $expense->amount,PHP_EOL;
+              echo $expense->comments, PHP_EOL;
+              echo $expense->name, PHP_EOL;
+              echo '<br>';
+            }
+            }
+          }
+          // dd($users_expenses);
+          ?>
+      </div>
+    </div>
+  </div>  
 </div>
-<h1> The data of the currently logged in user</h1>
-<?php
-
-
-echo 'UserId:',$userId, '<br>';
-echo 'username: ',$username,  '<br>';
-
-foreach ($users_expenses as $categories) {
-$first = true;
-  foreach ($categories as $expense)
-  {
-    // TODO: get rid of ugly flag.
-    if ($first)
-    {
-      echo $expense->name, '<br>';
-      $first = false;
-      echo $expense->creationTimeStamp, PHP_EOL;
-      echo $expense->amount,PHP_EOL;
-      echo $expense->comments, PHP_EOL;
-      echo $expense->name, PHP_EOL;
-    }
-    else
-    {
-    echo $expense->creationTimeStamp, PHP_EOL;
-    echo $expense->amount,PHP_EOL;
-    echo $expense->comments, PHP_EOL;
-    echo $expense->name, PHP_EOL;
-    echo '<br>';
-  }
-  }
-
-}
-// dd($users_expenses);
-?>
+<!-- -------------------------------------footer--------------------------------- -->
+<div class="footer">
+</div>
+<div class="rights">
+	No rights reserved at all - plenty of totally borrowed content
+</div>
 </div>
 
 

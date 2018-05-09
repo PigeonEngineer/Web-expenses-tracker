@@ -48,7 +48,30 @@
     .sidenav a {font-size: 18px;}
 }
 
-#ham i:hover {
+.ham i:hover {
     color: rgb(204, 65, 31);
     cursor: pointer;
+}
+
+
+/***********************footer****************************************/
+.footer {
+	height:3em;
+	background-color: rgb(22, 17, 17);
+	margin-top: 50px;
+	overflow: auto;
+	color: rgb(29, 24, 20);
+	position: relative;
+	 box-shadow: 0px 0px 30px  #888888;
+}
+
+	/********************************************************the footer footer**************************************************/
+.rights {
+	height: 20px;
+	background-color:rgba(31, 20, 20, 0.9);
+	color: rgba(255, 23, 15, 0.938);
+	text-align: center;
+	font-size: 13px;
+	
+
 }
