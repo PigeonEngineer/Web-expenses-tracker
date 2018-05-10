@@ -19,34 +19,35 @@
 
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> </div>
- 
-  <a class="navbar-brand" href="#">Expenses Tracker</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="http://localhost:8000/about">About</a>
-      </li>
-    </ul>
-  <div class="btn-group">
-      <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <?php echo $username; ?>
-      </button>
-    <div class="dropdown-menu dropdown-menu-right">
-      <button class="dropdown-item" type="button">Action</button>
-      <button class="dropdown-item" type="button">Another action</button>
-      <button class="dropdown-item" type="button">Something else here</button>
+    <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> 
     </div>
- </div>
-  </div>
-</nav>
+ 
+    <a class="navbar-brand" href="#">Expenses Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!--<li class="nav-item active">
+          <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
+        </li>-->
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/about">About</a>
+        </li>
+      </ul>
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php echo $username; ?>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">Action</button>
+          <button class="dropdown-item" type="button">Another action</button>
+          <button class="dropdown-item" type="button">Something else here</button>
+        </div>
+      </div>
+    </div>
+  </nav>
 <!--          ------------              -navbar end             ---                                        -->
 
 <!--                                          sidebar                                                         -->
@@ -60,9 +61,9 @@
   <!--  -----------------------------------------Php stuff----------------------- -->
     <?php
               $cat = array();
-              $i=0;
+              $i=0; 
               foreach ($users_expenses as $categories) {
-              $first = true;
+                $first = true;
               
                 foreach ($categories as $expense)
                 {
@@ -74,7 +75,6 @@
                   // echo $expense->creationTimeStamp, PHP_EOL;
                   // echo $expense->amount,PHP_EOL;
                   //echo $expense->comments, PHP_EOL;
-                  echo $expense->name, PHP_EOL;
                   $cat[$i]=$expense->name;
                   $i++;
                   }
@@ -132,13 +132,76 @@
         </div>
       </div>
     </div>
+    <!-- -----------------------------collapsable categories---------------------------- -->
+    <p>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Show more categories
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div>
+        
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php echo $cat[4];?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php echo $cat[5];?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php echo $cat[6];?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php echo $cat[7];?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php echo $cat[8];?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php echo $cat[9];?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
    <!-- --------------------------------------------------- row 4 ------------------- -->
     <div class="row">
       <div class="col-12">
         <h1> The data of the currently logged in user:</h1>
         <?php
           echo 'UserId:',$userId, '<br>';
-          echo 'username: ',$username,  '<br>'; ?>    
+          echo 'username: ',$username,  '<br>';?>
+        <h1> User's categories: </h1>
+        <?php 
+          foreach ($cat as $value) {
+            echo $value, ' ';
+          }
+          ?>             
       </div>
     </div>
   </div>  
