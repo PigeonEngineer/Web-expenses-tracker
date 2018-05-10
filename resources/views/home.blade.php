@@ -4,16 +4,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<!-- My own css and  JS -->
+    <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <!-- My own css and  JS -->
-    <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
-    <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}" />
+    
     <title>Quick draft</title>
   </head>
-  <body>
+  <body id="bootstrap-overrides">
 
   <!--    -------------------------------- -navbar    ---------------------------------------------------- -->
 
@@ -22,8 +22,8 @@
     <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> 
     </div>
  
-    <a class="navbar-brand" href="#">Expenses Tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a id="button" class="links navbar-brand " href="#">Expenses Tracker</a>
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -99,6 +99,7 @@
     <div class="row">
       <div class="col">
         <h1>Categories at a glance:</h1>
+        <br>
       </div>
     </div>
         <!--   -------------------row 2 --------------------------- --> 
@@ -134,7 +135,7 @@
     </div>
     <!-- -----------------------------collapsable categories---------------------------- -->
     <p>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Show more categories
       </button>
     </p>
@@ -210,7 +211,7 @@
 <div class="footer">
 </div>
 <div class="rights">
-	No rights reserved at all - plenty of totally borrowed content
+	No rights reserved at all - plenty of totally borrowed content!
 </div>
 </div>
 
