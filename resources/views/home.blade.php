@@ -57,8 +57,41 @@
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
+  <!--  -----------------------------------------Php stuff----------------------- -->
+    <?php
+              $cat = array();
+              $i=0;
+              foreach ($users_expenses as $categories) {
+              $first = true;
+              
+                foreach ($categories as $expense)
+                {
+                  // TODO: get rid of ugly flag.
+                  if ($first)
+                  {
+                    //echo $expense->name, '<br>';
+                  // $first = false;
+                  // echo $expense->creationTimeStamp, PHP_EOL;
+                  // echo $expense->amount,PHP_EOL;
+                  //echo $expense->comments, PHP_EOL;
+                  echo $expense->name, PHP_EOL;
+                  $cat[$i]=$expense->name;
+                  $i++;
+                  }
+                  else
+                  {
+                  // echo $expense->creationTimeStamp, PHP_EOL;
+                  // echo $expense->amount,PHP_EOL;
+                  // echo $expense->comments, PHP_EOL;
+                  // echo $expense->name, PHP_EOL;
+                  // echo '<br>';
+                }
+                }
+              }
+              // dd($users_expenses);
+              ?>
 
-<!--                                          main part of the page                                         -->
+<!--         ----------------------  main part of the page           ---------------------     -->
 <div id="main">
         <!--    --------------the grid system------------------------ -->
   <div class="container">
@@ -72,13 +105,14 @@
     <div class="row">
       <div class="col-6">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
+          <h1 class="display-4"> <?php echo $cat[0];?></h1>
+         
           <hr class="my-4">
         </div>
       </div>
       <div class="col-6">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
+          <h1 class="display-4"><?php echo $cat[1];?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -87,13 +121,13 @@
     <div class="row">
       <div class="col-6">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
+          <h1 class="display-4"><?php echo $cat[2];?></h1>
           <hr class="my-4">
         </div>
       </div>
       <div class="col-6">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
+          <h1 class="display-4"><?php echo $cat[3];?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -104,33 +138,7 @@
         <h1> The data of the currently logged in user:</h1>
         <?php
           echo 'UserId:',$userId, '<br>';
-          echo 'username: ',$username,  '<br>';
-          foreach ($users_expenses as $categories) {
-          $first = true;
-            foreach ($categories as $expense)
-            {
-              // TODO: get rid of ugly flag.
-              if ($first)
-              {
-                echo $expense->name, '<br>';
-                $first = false;
-                echo $expense->creationTimeStamp, PHP_EOL;
-                echo $expense->amount,PHP_EOL;
-                echo $expense->comments, PHP_EOL;
-                echo $expense->name, PHP_EOL;
-              }
-              else
-              {
-              echo $expense->creationTimeStamp, PHP_EOL;
-              echo $expense->amount,PHP_EOL;
-              echo $expense->comments, PHP_EOL;
-              echo $expense->name, PHP_EOL;
-              echo '<br>';
-            }
-            }
-          }
-          // dd($users_expenses);
-          ?>
+          echo 'username: ',$username,  '<br>'; ?>    
       </div>
     </div>
   </div>  
