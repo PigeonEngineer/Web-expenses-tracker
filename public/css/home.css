@@ -86,13 +86,31 @@
 	 box-shadow: 0px 0px 30px  #888888;
 }
 
-	/********************************************************the footer footer**************************************************/
+	/***************************************************the footer footer**************************************************/
 .rights {
 	height: 20px;
 	background-color:rgba(31, 20, 20, 0.9);
 	color: rgba(255, 23, 15, 0.938);
 	text-align: center;
 	font-size: 13px;
-	
+}
 
+/***************************scoll button*********************************************/
+#scrollBtn {
+    display: none; 
+    position: fixed; /* Fixed/sticky position */
+    bottom: 100px; /* Place the button at the bottom of the page */
+    right: 30px; 
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; 
+    outline: none; 
+    background-color: rgba(255, 23, 15, 0.938); 
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px;
+    border-radius: 10px; 
+    font-family: 'Quicksand', sans-serif;
+}
+
+#scrollBtn:hover {
+    background-color:burlywood; 
 }

@@ -213,6 +213,10 @@
 <div class="rights">
 	No rights reserved at all - plenty of totally borrowed content!
 </div>
+
+<button onclick="topFunction()" id="scrollBtn" title="Go to top">Top</button>	<!----scroll button-->
+
+
 </div>
 
 
