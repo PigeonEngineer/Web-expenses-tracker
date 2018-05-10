@@ -214,7 +214,7 @@
 	No rights reserved at all - plenty of totally borrowed content!
 </div>
 
-<button onclick="topFunction()" id="scrollBtn" title="Go to top">Top</button>	<!----scroll button-->
+<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">Top</button>	<!----scroll button-->
 
 
 </div>

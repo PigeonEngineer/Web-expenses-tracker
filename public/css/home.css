@@ -102,15 +102,11 @@
     bottom: 100px; /* Place the button at the bottom of the page */
     right: 30px; 
     z-index: 99; /* Make sure it does not overlap */
-    border: none; 
-    outline: none; 
-    background-color: rgba(255, 23, 15, 0.938); 
+    /*border: none;*/
+    outline: none;  
+    /*background-color: rgba(255, 23, 15, 0.938); */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 15px;
     border-radius: 10px; 
     font-family: 'Quicksand', sans-serif;
-}
-
-#scrollBtn:hover {
-    background-color:burlywood; 
 }
