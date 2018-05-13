@@ -18,13 +18,18 @@
 Route::get('about', function () {
     return view('about');
 });
-Route::get ('newHome', 'NewMainController@getmaincontr');
+
 Route::resource('Budget', 'BudgetController');
 Route::resource('Category', 'CategoryController');
 Route::resource('Categorys_budget', 'Categorys_budgetController');
 Route::resource('Expense', 'ExpenseController');
 Route::resource('Setting', 'SettingController');
 Route::resource('Users_expense', 'Users_expenseController');
+Route::get('food', 'FoodDrinkController@getFood');
+Route::get('work', 'WorkController@getWork');
+Route::get('living', 'LivingCostsController@getLiving');
+Route::get('entertainment', 'EntertainmentController@getEnt');
+
 
 Auth::routes();
 

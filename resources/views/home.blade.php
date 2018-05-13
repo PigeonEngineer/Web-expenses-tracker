@@ -114,7 +114,7 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/work">View</a> 
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div> 
@@ -125,7 +125,7 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/food">View</a> 
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div>   
@@ -139,7 +139,7 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/living">View</a> 
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div>   
@@ -150,7 +150,7 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/entertainment">View</a> 
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div> 
