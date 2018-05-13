@@ -22,6 +22,29 @@ VALUES (4,1);
 INSERT INTO categorys_budgets (budgets_id, categorys_id)
 VALUES (5,4);
 
+-- the users categories for three users.
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (1,1);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (1,2);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (1,3);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (1,4);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (1,5);
+
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (2,5);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (3,1);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (3,3);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (2,2);
+INSERT INTO users_categorys (users_id, categorys_id)
+VALUES (2,1);
+
 -- categorys VALUES
 INSERT INTO categorys(name)
 VALUES ('Work expense');

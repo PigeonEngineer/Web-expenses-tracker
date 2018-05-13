@@ -10,18 +10,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    
+
     <title>Quick draft</title>
   </head>
   <body id="bootstrap-overrides">
 
   <!--    -------------------------------- -navbar    ---------------------------------------------------- -->
 
-  
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i> 
+    <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
     </div>
- 
+
     <a id="button" class="links navbar-brand " href="#">Expenses Tracker</a>
     <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -59,12 +59,17 @@
   <a href="#">Contact</a>
 </div>
   <!--  -----------------------------------------Php stuff----------------------- -->
-    <?php
+  <h3>New way to get the users categories </h3>
+      <?php
+
+                foreach ($users_categories as $users_category) {
+                  echo $users_category->name, PHP_EOL;
+                }
               $cat = array();
-              $i=0; 
+              $i=0;
               foreach ($users_expenses as $categories) {
                 $first = true;
-              
+
                 foreach ($categories as $expense)
                 {
                   // TODO: get rid of ugly flag.
@@ -95,19 +100,19 @@
 <div id="main">
         <!--    --------------the grid system------------------------ -->
   <div class="container">
-      <!--   -------------------row 1 --------------------------- --> 
+      <!--   -------------------row 1 --------------------------- -->
     <div class="row">
       <div class="col">
         <h1>Categories at a glance:</h1>
         <br>
       </div>
     </div>
-        <!--   -------------------row 2 --------------------------- --> 
+        <!--   -------------------row 2 --------------------------- -->
     <div class="row">
       <div class="col-6">
         <div class="jumbotron">
           <h1 class="display-4"> <?php echo $cat[0];?></h1>
-         
+
           <hr class="my-4">
         </div>
       </div>
@@ -141,7 +146,7 @@
     </p>
     <div class="collapse" id="collapseExample">
       <div>
-        
+
         <div class="row">
           <div class="col-6">
             <div class="jumbotron">
@@ -198,14 +203,14 @@
           echo 'UserId:',$userId, '<br>';
           echo 'username: ',$username,  '<br>';?>
         <h1> User's categories: </h1>
-        <?php 
+        <?php
           foreach ($cat as $value) {
             echo $value, ' ';
           }
-          ?>             
+          ?>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 <!-- -------------------------------------footer--------------------------------- -->
 <div class="footer">

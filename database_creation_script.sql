@@ -5,15 +5,6 @@ CREATE TABLE budgets(
     amount DECIMAL(19,4),
     PRIMARY KEY(id)
 );
-
-CREATE TABLE categorys_budgets (
-	id INT NOT NULL AUTO_INCREMENT,
-	budgets_id INT,
-    categorys_id INT,
-    PRIMARY KEY(id),
-    FOREIGN KEY(budgets_id) REFERENCES budgets(id) ON DELETE CASCADE,
-    FOREIGN KEY(categorys_id) REFERENCES categorys(id) ON DELETE CASCADE
-);
 CREATE TABLE categorys (
     id INT NOT NULL AUTO_INCREMENT,
     name varchar(255),
@@ -36,6 +27,22 @@ CREATE TABLE users_expenses (
     PRIMARY KEY(id),
     FOREIGN KEY(expenses_id) REFERENCES expenses(id) ON DELETE CASCADE,
     FOREIGN KEY(users_id) REFERENCES users(id)
+);
+CREATE TABLE categorys_budgets (
+	id INT NOT NULL AUTO_INCREMENT,
+	budgets_id INT,
+    categorys_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(budgets_id) REFERENCES budgets(id) ON DELETE CASCADE,
+    FOREIGN KEY(categorys_id) REFERENCES categorys(id) ON DELETE CASCADE
+);
+CREATE TABLE users_categorys (
+	id INT NOT NULL AUTO_INCREMENT,
+	users_id INT,
+	categorys_id INT,
+	PRIMARY KEY(id),
+	FOREIGN KEY(categorys_id) REFERENCES categorys(id) ON DELETE CASCADE,
+	FOREIGN KEY(users_id) REFERENCES users(id)
 );
 CREATE TABLE settings (
 	id INT NOT NULL AUTO_INCREMENT,

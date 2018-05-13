@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Expense;
 use App\Users_expense;
+use APP\Users_category;
 use App \Category;
 use DB;
 
@@ -32,7 +33,11 @@ class HomeController extends Controller
       // get user id
       $userId = Auth::id();
       $userName = User::find($userId)->name;
-
+      // $userCategorys = Users_category::find($userId);
+      $userCategorys = DB::table('users_categorys')
+      -> join ('categorys', 'users_categorys.categorys_id', '=', 'categorys.id')
+      -> where ('users_categorys.users_id', '=', $userId)
+      ->get();
 
       $User_expenses = DB::table('expenses')
                 -> join ('users_expenses', 'expenses.id' ,'=','users_expenses.expenses_id')
@@ -41,11 +46,13 @@ class HomeController extends Controller
                 -> where ('users.id', '=', $userId)
                 ->get();
 
+
       // $categories=array();
       //     foreach ($User_expenses as $user_expense) {
       //         $categories[$user_expense[0]][] = $user_expense[1];
       //       }
       $User_expenses = $User_expenses->groupBy('categorys_id');
+
       // foreach ($User_expenses as $categories)
       // {
       //
@@ -60,7 +67,8 @@ class HomeController extends Controller
        $data = [
           'username'  => $userName,
           'userId' => $userId,
-          'users_expenses' =>$User_expenses
+          'users_expenses' =>$User_expenses,
+          'users_categories' => $userCategorys
 ];
       // $this->set('test',  $test);
         return view('home')->with($data);
