@@ -56,6 +56,7 @@
     color: rgb(204, 65, 31);
     cursor: pointer;
 }
+/*****************************************bootstrap overrides********************************/
 #bootstrap-overrides li a:hover {
     color: rgb(204, 65, 31);
     cursor: pointer;
@@ -66,6 +67,7 @@
 }
 #bootstrap-overrides .jumbotron {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
 }
 #bootstrap-overrides {
     font-family: 'Titillium Web', sans-serif !important; 
@@ -112,3 +114,39 @@
     border-radius: 10px; 
     font-family: 'Quicksand', sans-serif;
 }
+/*********************************fading jumbotron links***************************************/
+.overlay {
+    position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color:black;
+      border-radius: 6px;	
+    }
+
+    .overlay_text {
+        color:aliceblue;
+        font-size: 3em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+      .fadeboxtext {
+        color:aliceblue;
+      }
+      .fadeboxtext:hover {
+        text-decoration: none;
+        color: rgb(204, 65, 31);
+      }
+
+      
+      .jumbotron:hover .overlay {
+        opacity: 0.8;
+      }

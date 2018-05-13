@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- My own css and  JS -->
+    <!-- My own css and  JS -->
     <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
     <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}" />
     <!-- Bootstrap CSS -->
@@ -59,14 +59,16 @@
   <a href="#">Contact</a>
 </div>
   <!--  -----------------------------------------Php stuff----------------------- -->
-  <h3>New way to get the users categories </h3>
       <?php
 
-                foreach ($users_categories as $users_category) {
-                  echo $users_category->name, PHP_EOL;
-                }
-              $cat = array();
-              $i=0;
+                  $cat = array(); $i=0;     ///te buus visu kategoriju nosaukumi
+                  foreach ($users_categories as $users_category) {
+                  //echo $users_category->name, PHP_EOL;
+                  $cat[$i]=$users_category->name;
+                  $i++;
+                  }
+            
+              
               foreach ($users_expenses as $categories) {
                 $first = true;
 
@@ -80,8 +82,8 @@
                   // echo $expense->creationTimeStamp, PHP_EOL;
                   // echo $expense->amount,PHP_EOL;
                   //echo $expense->comments, PHP_EOL;
-                  $cat[$i]=$expense->name;
-                  $i++;
+                  
+                  
                   }
                   else
                   {
@@ -111,14 +113,23 @@
     <div class="row">
       <div class="col-6">
         <div class="jumbotron">
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div> 
           <h1 class="display-4"> <?php echo $cat[0];?></h1>
-
           <hr class="my-4">
         </div>
       </div>
       <div class="col-6">
         <div class="jumbotron">
-          <h1 class="display-4"><?php echo $cat[1];?></h1>
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div>   
+        <h1 class="display-4"><?php echo $cat[1];?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -127,12 +138,22 @@
     <div class="row">
       <div class="col-6">
         <div class="jumbotron">
-          <h1 class="display-4"><?php echo $cat[2];?></h1>
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div>   
+        <h1 class="display-4"><?php echo $cat[2];?></h1>
           <hr class="my-4">
         </div>
       </div>
       <div class="col-6">
         <div class="jumbotron">
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/about">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div> 
           <h1 class="display-4"><?php echo $cat[3];?></h1>
           <hr class="my-4">
         </div>
@@ -180,13 +201,13 @@
         <div class="row">
           <div class="col-6">
             <div class="jumbotron">
-              <h1 class="display-4"><?php echo $cat[8];?></h1>
+              <h1 class="display-4"><?php //echo $cat[8];?></h1>
               <hr class="my-4">
             </div>
           </div>
           <div class="col-6">
             <div class="jumbotron">
-              <h1 class="display-4"><?php echo $cat[9];?></h1>
+              <h1 class="display-4"><?php //echo $cat[9];?></h1>
               <hr class="my-4">
             </div>
           </div>
@@ -205,7 +226,7 @@
         <h1> User's categories: </h1>
         <?php
           foreach ($cat as $value) {
-            echo $value, ' ';
+            echo $value, ',', ' ';
           }
           ?>
       </div>
