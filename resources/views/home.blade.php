@@ -60,14 +60,20 @@
 </div>
   <!--  -----------------------------------------Php stuff----------------------- -->
       <?php
-
+               
                   $cat = array(); $i=0;     ///te buus visu kategoriju nosaukumi
                   foreach ($users_categories as $users_category) {
                   //echo $users_category->name, PHP_EOL;
                   $cat[$i]=$users_category->name;
                   $i++;
                   }
-            
+            function printCat ($value, $cat) {  ///kategoriju nosaukumu drukasana kategoriju blokos
+              $skaits=count($cat);
+              if ($value<=$skaits-1) {
+                  echo $cat[$value];
+                  }
+              else return;
+              }
               
               foreach ($users_expenses as $categories) {
                 $first = true;
@@ -118,7 +124,7 @@
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div> 
-          <h1 class="display-4"> <?php echo $cat[0];?></h1>
+          <h1 class="display-4"> <?php printCat(0, $cat);//echo $cat[0];?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -129,7 +135,7 @@
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div>   
-        <h1 class="display-4"><?php echo $cat[1];?></h1>
+        <h1 class="display-4"><?php printCat(1, $cat);?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -143,7 +149,7 @@
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div>   
-        <h1 class="display-4"><?php echo $cat[2];?></h1>
+        <h1 class="display-4"><?php printCat(2, $cat);?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -154,7 +160,7 @@
             <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
             </div>
           </div> 
-          <h1 class="display-4"><?php echo $cat[3];?></h1>
+          <h1 class="display-4"><?php printCat(3, $cat)?></h1>
           <hr class="my-4">
         </div>
       </div>
@@ -171,28 +177,13 @@
         <div class="row">
           <div class="col-6">
             <div class="jumbotron">
-              <h1 class="display-4"><?php echo $cat[4];?></h1>
+              <h1 class="display-4"><?php printCat(4, $cat);?></h1>
               <hr class="my-4">
             </div>
           </div>
           <div class="col-6">
             <div class="jumbotron">
-              <h1 class="display-4"><?php echo $cat[5];?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php echo $cat[6];?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php echo $cat[7];?></h1>
+              <h1 class="display-4"><?php printCat(5, $cat);?></h1>
               <hr class="my-4">
             </div>
           </div>
@@ -201,13 +192,28 @@
         <div class="row">
           <div class="col-6">
             <div class="jumbotron">
-              <h1 class="display-4"><?php //echo $cat[8];?></h1>
+              <h1 class="display-4"><?php printCat(6, $cat);?></h1>
               <hr class="my-4">
             </div>
           </div>
           <div class="col-6">
             <div class="jumbotron">
-              <h1 class="display-4"><?php //echo $cat[9];?></h1>
+              <h1 class="display-4"><?php printCat(7, $cat);?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php printCat(8, $cat);;?></h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4"><?php printCat(9, $cat);?></h1>
               <hr class="my-4">
             </div>
           </div>
