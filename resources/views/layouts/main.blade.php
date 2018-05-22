@@ -14,52 +14,8 @@
     <title>Quick draft</title>
   </head>
   <body id="bootstrap-overrides">
-
-  <!--    -------------------------------- -navbar    ---------------------------------------------------- -->
-
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
-    </div>
-
-    <a id="button" class="links navbar-brand " href="#">Expenses Tracker</a>
-    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <!--<li class="nav-item active">
-          <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
-        </li>-->
-        <li class="nav-item active">
-          <a class="nav-link" href="http://localhost:8000/about">About</a>
-        </li>
-      </ul>
-      <div class="btn-group">
-        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        @php   {{$username}}  @endphp
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
-        </div>
-      </div>
-    </div>
-  </nav>
-<!--          ------------              -navbar end             ---                                        -->
-
-<!--                                          sidebar                                                         -->
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
-  <!--  -----------------------------------------Php stuff----------------------- -->
-      @php
+<!--  -----------------------------------------Php stuff----------------------- -->
+      {{-- @php
                
                   $cat = array(); $i=0;     ///te buus visu kategoriju nosaukumi
                   foreach ($users_categories as $users_category) {
@@ -102,7 +58,51 @@
                 }
               }
               // dd($users_expenses);
-              @endphp
+              @endphp --}}
+  <!--    -------------------------------- -navbar    ---------------------------------------------------- -->
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
+    </div>
+
+    <a id="button" class="links navbar-brand " href="#">Expenses Tracker</a>
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!--<li class="nav-item active">
+          <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
+        </li>-->
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost:8000/about">About</a>
+        </li>
+      </ul>
+      <div class="btn-group">
+        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       {{-- {{$username}}  --}}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">Action</button>
+          <button class="dropdown-item" type="button">Another action</button>
+          <button class="dropdown-item" type="button">Something else here</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!--          ------------              -navbar end             ---                                        -->
+
+<!--                                          sidebar                                                         -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+  
 
 <!--         ----------------------  main part of the page           ---------------------     -->
 <div id="main">
@@ -110,128 +110,7 @@
   <div class="container">
       <!--   -------------------row 1 --------------------------- -->
     @yield ('stuff');
-        <!--   -------------------row 2 --------------------------- -->
-    <div class="row">
-      <div class="col-6">
-        <div class="jumbotron">
-          <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/work">View</a> 
-            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
-            </div>
-          </div> 
-          <h1 class="display-4"> @php printCat(0, $cat);/*echo $cat[0];*/ @endphp</h1>
-          <hr class="my-4">
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="jumbotron">
-          <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/food">View</a> 
-            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
-            </div>
-          </div>   
-        <h1 class="display-4">@php printCat(1, $cat);@endphp</h1>
-          <hr class="my-4">
-        </div>
-      </div>
-    </div>
-<!-- --------------------------------------------------- row 3 ------------------- -->
-    <div class="row">
-      <div class="col-6">
-        <div class="jumbotron">
-          <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/living">View</a> 
-            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
-            </div>
-          </div>   
-        <h1 class="display-4">@php printCat(2, $cat);@endphp</h1>
-          <hr class="my-4">
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="jumbotron">
-          <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/entertainment">View</a> 
-            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
-            </div>
-          </div> 
-          <h1 class="display-4">@php printCat(3, $cat)@endphp</h1>
-          <hr class="my-4">
-        </div>
-      </div>
-    </div>
-    <!-- -----------------------------collapsable categories---------------------------- -->
-    <p>
-      <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Show more categories
-      </button>
-    </p>
-    <div class="collapse" id="collapseExample">
-      <div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4">@php printCat(4, $cat);@endphp</h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4">@php printCat(5, $cat);@endphp</h1>
-              <hr class="my-4">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4">@php printCat(6, $cat);@endphp</h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4">@php printCat(7, $cat);@endphp</h1>
-              <hr class="my-4">
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4">@php printCat(8, $cat);;@endphp</h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4">@php printCat(9, $cat);@endphp</h1>
-              <hr class="my-4">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-   <!-- --------------------------------------------------- row 4 ------------------- -->
-    <div class="row">
-      <div class="col-12">
-        <h1> The data of the currently logged in user:</h1>
-        @php
-          echo 'UserId:',$userId, '<br>';
-          echo 'username: ',$username,  '<br>';@endphp
-        <h1> User's categories: </h1>
-        @php
-          foreach ($cat as $value) {
-            echo $value, ',', ' ';
-          }
-          @endphp
-      </div>
-    </div>
+        
   </div>
 </div>
 <!-- -------------------------------------footer--------------------------------- -->
