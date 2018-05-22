@@ -28,7 +28,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    
+    
+     public function index()
     {
       // get user id
       $userId = Auth::id();
@@ -72,5 +75,6 @@ class HomeController extends Controller
 ];
       // $this->set('test',  $test);
         return view('home')->with($data);
+        
     }
 }
