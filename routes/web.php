@@ -30,8 +30,6 @@ Route::get('work', 'WorkController@getWork');
 Route::get('living', 'LivingCostsController@getLiving');
 Route::get('entertainment', 'EntertainmentController@getEnt');
 
-
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index');

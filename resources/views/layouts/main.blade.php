@@ -38,7 +38,7 @@
       </ul>
       <div class="btn-group">
         <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <?php echo $username; ?>
+        @php   {{$username}}  @endphp
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <button class="dropdown-item" type="button">Action</button>
@@ -58,13 +58,180 @@
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
-  
+  <!--  -----------------------------------------Php stuff----------------------- -->
+      @php
+               
+                  $cat = array(); $i=0;     ///te buus visu kategoriju nosaukumi
+                  foreach ($users_categories as $users_category) {
+                  //echo $users_category->name, PHP_EOL;
+                  $cat[$i]=$users_category->name;
+                  $i++;
+                  }
+            function printCat ($value, $cat) {  ///kategoriju nosaukumu drukasana kategoriju blokos
+              $skaits=count($cat);
+              if ($value<=$skaits-1) {
+                  echo $cat[$value];
+                  }
+              else return;
+              }
+              
+              foreach ($users_expenses as $categories) {
+                $first = true;
+
+                foreach ($categories as $expense)
+                {
+                  // TODO: get rid of ugly flag.
+                  if ($first)
+                  {
+                    //echo $expense->name, '<br>';
+                  // $first = false;
+                  // echo $expense->creationTimeStamp, PHP_EOL;
+                  // echo $expense->amount,PHP_EOL;
+                  //echo $expense->comments, PHP_EOL;
+                  
+                  
+                  }
+                  else
+                  {
+                  // echo $expense->creationTimeStamp, PHP_EOL;
+                  // echo $expense->amount,PHP_EOL;
+                  // echo $expense->comments, PHP_EOL;
+                  // echo $expense->name, PHP_EOL;
+                  // echo '<br>';
+                }
+                }
+              }
+              // dd($users_expenses);
+              @endphp
 
 <!--         ----------------------  main part of the page           ---------------------     -->
 <div id="main">
         <!--    --------------the grid system------------------------ -->
   <div class="container">
-    @yield('stuff')
+      <!--   -------------------row 1 --------------------------- -->
+    @yield ('stuff');
+        <!--   -------------------row 2 --------------------------- -->
+    <div class="row">
+      <div class="col-6">
+        <div class="jumbotron">
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/work">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div> 
+          <h1 class="display-4"> @php printCat(0, $cat);/*echo $cat[0];*/ @endphp</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="jumbotron">
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/food">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div>   
+        <h1 class="display-4">@php printCat(1, $cat);@endphp</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+<!-- --------------------------------------------------- row 3 ------------------- -->
+    <div class="row">
+      <div class="col-6">
+        <div class="jumbotron">
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/living">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div>   
+        <h1 class="display-4">@php printCat(2, $cat);@endphp</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="jumbotron">
+          <div class="overlay">
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/entertainment">View</a> 
+            <a class="fadeboxtext" href="http://localhost:8000/about">Add</a>
+            </div>
+          </div> 
+          <h1 class="display-4">@php printCat(3, $cat)@endphp</h1>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+    <!-- -----------------------------collapsable categories---------------------------- -->
+    <p>
+      <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Show more categories
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4">@php printCat(4, $cat);@endphp</h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4">@php printCat(5, $cat);@endphp</h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4">@php printCat(6, $cat);@endphp</h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4">@php printCat(7, $cat);@endphp</h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4">@php printCat(8, $cat);;@endphp</h1>
+              <hr class="my-4">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="jumbotron">
+              <h1 class="display-4">@php printCat(9, $cat);@endphp</h1>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+   <!-- --------------------------------------------------- row 4 ------------------- -->
+    <div class="row">
+      <div class="col-12">
+        <h1> The data of the currently logged in user:</h1>
+        @php
+          echo 'UserId:',$userId, '<br>';
+          echo 'username: ',$username,  '<br>';@endphp
+        <h1> User's categories: </h1>
+        @php
+          foreach ($cat as $value) {
+            echo $value, ',', ' ';
+          }
+          @endphp
+      </div>
+    </div>
   </div>
 </div>
 <!-- -------------------------------------footer--------------------------------- -->
