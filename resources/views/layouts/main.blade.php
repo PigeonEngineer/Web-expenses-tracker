@@ -59,10 +59,8 @@
   <a href="#">Contact</a>
 </div>
   
-
 <!--         ----------------------  main part of the page           ---------------------     -->
 <div id="main">
-
 
         <!--    --------------the grid system------------------------ -->
   <div class="container">

@@ -32,7 +32,7 @@
 
 
 @section('stuff')
-<h1> This is Food and Drink view</h1>
+<h1> This is Entertainment view</h1>
 
  <div class="row">
     <div class="col-12">
