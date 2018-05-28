@@ -22,7 +22,7 @@
     <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
     </div>
 
-    <a id="button" class="links navbar-brand " href="#">Expenses Tracker</a>
+    <a id="button" class="links navbar-brand " href="http://localhost:8000/">Expenses Tracker</a>
     <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,18 +32,15 @@
         <!--<li class="nav-item active">
           <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
         </li>-->
-        <li class="nav-item active">
-          <a class="nav-link" href="http://localhost:8000/about">About</a>
-        </li>
+        
       </ul>
       <div class="btn-group">
         <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{$username}}  
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-          <button class="dropdown-item" type="button">Something else here</button>
+          <button class="dropdown-item" type="button">My Profile</button>
+          <button class="dropdown-item" type="button">Exit</button>
         </div>
       </div>
     </div>

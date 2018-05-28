@@ -29,6 +29,7 @@ Route::get('food', 'FoodDrinkController@getFood');
 Route::get('work', 'WorkController@getWork');
 Route::get('living', 'LivingCostsController@getLiving');
 Route::get('entertainment', 'EntertainmentController@getEnt');
+Route::get('add', 'AddController@getAdd');
 
 Auth::routes();
 
