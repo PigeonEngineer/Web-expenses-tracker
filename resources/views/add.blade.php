@@ -37,22 +37,22 @@
   <div class='row'>
     <div class="col-9">
       <form>
-        <div class="form-group row">
+        <div class="form-group row form-control-lg">
           <label for="inputEmail3" class="col-sm-2 col-form-label">Amount:</label>
-          <div class="col-sm-10">
+          <div class="col-auto">
             <input type="input" class="form-control" id="inputEmail3" placeholder="Amount">
           </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row form-control-lg">
           <label for="inputPassword3" class="col-sm-2 col-form-label">Comment:</label>
           <div class="col-sm-10">
             <input type="textarea" class="form-control" id="inputPassword3" placeholder="Comment">
           </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row form-control-lg">
           <label for="select" class="col-sm-2 col-form-label">Category:</label>
             <div class="col-sm-10">
-              <select class="custom-select" id='select'>
+              <select class="custom-select form-control" id='select'>
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
