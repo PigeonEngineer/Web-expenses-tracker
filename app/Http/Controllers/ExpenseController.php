@@ -12,6 +12,7 @@ use Redirect;
 // use App\Budget;
 use App\Category;
 use App\Expense;
+use App\Users_expense;
 use Validator;
 use Illuminate\Support\Facades\Input;
 use View;
@@ -71,8 +72,8 @@ class ExpenseController extends Controller
           $expenses->categorys_id      = Input::get('categories');
           $expenses->comments     = Input::get('comments');
           $expenses->creationTimeStamp = Carbon::now()->toDateTimeString();
+          $expenses->user_id = Auth::user()->id;
           $expenses->save();
-
           // redirect
           Session::flash('message', 'Successfully created Expenses!');
           return Redirect::to("Expense");

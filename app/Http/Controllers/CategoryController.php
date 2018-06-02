@@ -2,8 +2,18 @@
 
 namespace App\Http\Controllers;
 
+
+use Redirect;
 use App\Category;
+use App\Budget;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use View;
+use Auth;
 use Illuminate\Http\Request;
+use Session;
+use DB;
+use App\Expense;
 
 class CategoryController extends Controller
 {
@@ -44,9 +54,21 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
         //
+        $category = Category::find($id);
+        $user_id = Auth::user()->id;
+        $expenses = DB::table('expenses')
+        // ->join('expenses', 'users_expenses.expenses_id', 'expenses.id')
+        ->where('expenses.user_id', '=', $user_id)
+        ->where('expenses.categorys_id', '=', $id )
+        ->get();
+
+        return View::make('Category.show')
+          ->with("expenses", $expenses)
+            ->with('Category', $category);
+
     }
 
     /**

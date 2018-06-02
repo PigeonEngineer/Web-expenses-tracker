@@ -63,3 +63,8 @@ ALTER TABLE users
     -- ADD COLUMN Roles INT(10) UNSIGNED NOT NULL
     -- roles or something will be needed for the admin/user distinction
     AFTER email
+
+
+-- add the foreign key to expenses
+		ALTER TABLE expenses ADD user_id INT NOT NULL DEFAULT 1;
+		ALTER TABLE expenses ADD FOREIGN KEY (`user_id`) REFERENCES users(`id`);

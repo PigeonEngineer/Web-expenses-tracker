@@ -43,8 +43,8 @@ class HomeController extends Controller
       ->get();
 
       $User_expenses = DB::table('expenses')
-                -> join ('users_expenses', 'expenses.id' ,'=','users_expenses.expenses_id')
-                -> join ('users', 'users.id', '=', 'users_expenses.users_id')
+                // -> join ('users_expenses', 'expenses.id' ,'=','users_expenses.expenses_id')
+                -> join ('users', 'users.id', '=', 'expenses.user_id')
                 -> join ('categories', 'expenses.categorys_id', '=', 'categories.id')
                 -> where ('users.id', '=', $userId)
                 ->get();
