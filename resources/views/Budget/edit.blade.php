@@ -1,25 +1,19 @@
-
+@extends('layouts.main')
+@section('stuff')
 <?php
 $name_of_thing = "Budget";
  ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Look! I'm CRUDding</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+
 <div class="container">
 
-  <nav class="navbar navbar-inverse">
-      <div class="navbar-header">
-          <a class="navbar-brand" href="{{ URL::to('Budget') }}">{{$name_of_thing}}s</a>
-      </div>
-      <ul class="nav navbar-nav">
-          <li><a href="{{ URL::to('Budget') }}">View {{$name_of_thing}}s </a></li>
-          <li><a href="{{ URL::to('Budget/create') }}">Create a {{$name_of_thing}}</a>
-      </ul>
-  </nav>
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ URL::to('Budget') }}">{{$name_of_thing}}s</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ URL::to('Budget/create') }}">Create a {{$name_of_thing}}</a>
+                </li>
+              </ul>  
 
 <h1>Edit {{ $Budget->id }}</h1>
 
@@ -30,27 +24,26 @@ $name_of_thing = "Budget";
 
 
     <div class="form-group">
-         {!! Form::label('fromDateTime', 'date this budget should start') !!}
+         {!! Form::label('fromDateTime', 'Start date: ') !!}
          {{-- {!! Form::text('fromDateTime', 'budget start date') !!} --}}
-         <input type="date" id = "fromDateTime" name="fromDateTime">
+         <input class="form-control" type="date" id = "fromDateTime" name="fromDateTime" class="form-group">
      </div>
 
      <div class="form-group">
-         {!! Form::label('ToDateTime', 'date this budget should end') !!}
+         {!! Form::label('ToDateTime', 'End date: ') !!}
          {{-- {!! Form::text('ToDateTime', 'budget end date') !!} --}}
-          <input type="date" id = "ToDateTime" name="ToDateTime">
+         <input class="form-control" type="date" id = "ToDateTime" name="ToDateTime">
      </div>
 
      <div class="form-group">
          {!! Form::label('amount', 'budget ceiling') !!}
-         {!! Form::text('amount') !!}
+         {!! Form::text('amount' ,null, ['class' => 'form-control']) !!}
 
    </div>
 
-    {{ Form::submit('Edit the budget!', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Edit the budget!', array('class' => 'btn btn-outline-danger')) }}
 
 {{ Form::close() }}
 
 </div>
-</body>
-</html>
+@endsection

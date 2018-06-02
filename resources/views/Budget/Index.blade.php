@@ -1,18 +1,23 @@
-<!DOCTYPE html>
+@extends('layouts.main')
+@section('stuff')
 <?php
 $name_of_thing = "Budget";
 // use resources/views/app.blade.php;
  ?>
 
-<html>
-<head>
-    <title>CHANGE MY NAME</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+
 <div class="container">
 
-<nav class="navbar navbar-inverse">
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ URL::to('Budget') }}">{{$name_of_thing}}s</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ URL::to('Budget/create') }}">Create a {{$name_of_thing}}</a>
+                </li>
+              </ul>   
+
+{{-- <nav class="navbar navbar-inverse">
     <div class="navbar-header">
         <a class="navbar-brand" href="{{ URL::to('Budget') }}">{{$name_of_thing}}s</a>
     </div>
@@ -20,8 +25,8 @@ $name_of_thing = "Budget";
         <li><a href="{{ URL::to('Budget') }}">View {{$name_of_thing}}s </a></li>
         <li><a href="{{ URL::to('Budget/create') }}">Create a {{$name_of_thing}}</a>
     </ul>
-</nav>
-
+</nav> --}}
+<br>
 <h1>All the {{$name_of_thing}}s</h1>
 
 <!-- will be used to show any messages -->
@@ -33,9 +38,9 @@ $name_of_thing = "Budget";
     <thead>
         <tr>
             <td>ID</td>
-            <td>fromDateTime</td>
-            <td>toDateTime</td>
-            <td>amount</td>
+            <td>From</td>
+            <td>To</td>
+            <td>Amount</td>
         </tr>
     </thead>
     <tbody>
@@ -45,12 +50,12 @@ $name_of_thing = "Budget";
             <td>{{ $value->fromDateTime }}</td>
             <td>{{ $value->ToDateTime }}</td>
             <td>{{ $value->amount}}</td>
-            <td>
-
+            <td class="col-6">
+                    <a class="btn btn-small ">
                 {{ Form::open(array('url' => 'Budget/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Delete this Budget', array('class' => 'btn btn-warning')) }}
-                {{ Form::close() }}
+                {{ Form::close() }} </a>
                 <a class="btn btn-small btn-success" href="{{ URL::to('Budget/' . $value->id) }}">Show this {{$name_of_thing}}</a>
 
                 <a class="btn btn-small btn-info" href="{{ URL::to('Budget/' . $value->id . '/edit') }}">Edit this {{$name_of_thing}}</a>
@@ -62,5 +67,4 @@ $name_of_thing = "Budget";
 </table>
 
 </div>
-</body>
-</html>
+@endsection

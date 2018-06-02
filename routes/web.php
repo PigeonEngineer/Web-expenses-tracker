@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//  Route::get('old', function () {
+//     return view('Budget/Index-noTmp');
+//  });
 
 Route::get('about', function () {
     return view('about');
