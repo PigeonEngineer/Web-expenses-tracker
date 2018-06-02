@@ -4,7 +4,6 @@
 $name_of_thing = "Budget";
 // use resources/views/app.blade.php;
  ?>
-<div class="container">
 
         <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -14,7 +13,7 @@ $name_of_thing = "Budget";
                   <a class="nav-link" href="{{ URL::to('Budget/create') }}">Create a {{$name_of_thing}}</a>
                 </li>
               </ul>  
-
+<br>
 <h1>Showing {{ $Budget->id }}</h1>
 
     <div class="jumbotron text-center">
@@ -24,6 +23,4 @@ $name_of_thing = "Budget";
             <strong>to date time:</strong> {{ $Budget->ToDateTime }}
         </p>
     </div>
-
-</div>
 @endsection

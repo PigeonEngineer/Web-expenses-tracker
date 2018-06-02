@@ -16,21 +16,20 @@ $name_of_thing = "Category expense";
                 </li>
               </ul>
 <br>
-<h1>All the {{$name_of_thing}}s</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-<h1>Showing {{ $Category->id }}</h1>
-
-    <div class="jumbotron text-center">
+{{-- <h1>Showing {{ $Category->id }}</h1> --}}
+<h1>{{ $Category->name }}</h1>
+    {{-- <div class="jumbotron text-center">
         <h2>{{ $Category->name }}</h2>
         <p>
 
 
         </p>
-    </div>
+    </div> --}}
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -49,7 +48,7 @@ $name_of_thing = "Category expense";
             {{-- <td>{{ $value->categorys_id }}</td> --}}
             <td>{{ $value->comments}}</td>
             <td>{{ $value->creationTimeStamp}}</td>
-            <td class="col-6">
+            <td class="col-8">
                     <a class="btn btn-small ">
                 {{ Form::open(array('url' => 'Expense/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}

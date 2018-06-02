@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 /*****************************************bootstrap overrides********************************/
-html, body { height: 100%; }
+
 
 #bootstrap-overrides li a:hover {
     color: rgb(204, 65, 31);

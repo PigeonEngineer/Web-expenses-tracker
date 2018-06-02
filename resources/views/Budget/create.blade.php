@@ -8,7 +8,6 @@ $name_of_thing = "Budget";
 $Budget = new Budget( );
  ?>
 
-<div class="container">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::to('Budget') }}">{{$name_of_thing}}s</a>
@@ -58,5 +57,4 @@ $Budget = new Budget( );
 
 {!! Form::close() !!}
 
-</div>
 @endsection

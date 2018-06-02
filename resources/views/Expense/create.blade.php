@@ -8,7 +8,6 @@ use App\Http\Controllers\Redirect;
 $name_of_thing = "Expense";
  ?>
 
-<div class="container">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
@@ -49,5 +48,5 @@ $name_of_thing = "Expense";
 
 {!! Form::close() !!}
 
-</div>
+
 @endsection

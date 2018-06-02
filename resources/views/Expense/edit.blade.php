@@ -3,7 +3,6 @@
 <?php
 $name_of_thing = "Expense";
  ?>
-<div class="container">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
@@ -46,6 +45,4 @@ $name_of_thing = "Expense";
     {{ Form::submit('Edit the Expense!', array('class' => 'btn btn-outline-danger')) }}
 
 {{ Form::close() }}
-
-</div>
 @endsection

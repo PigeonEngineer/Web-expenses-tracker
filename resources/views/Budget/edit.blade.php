@@ -4,7 +4,6 @@
 $name_of_thing = "Budget";
  ?>
 
-<div class="container">
 
         <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -14,7 +13,7 @@ $name_of_thing = "Budget";
                   <a class="nav-link" href="{{ URL::to('Budget/create') }}">Create a {{$name_of_thing}}</a>
                 </li>
               </ul>  
-
+<br>
 <h1>Edit {{ $Budget->id }}</h1>
 
 <!-- if there are creation errors, they will show here -->
@@ -45,5 +44,5 @@ $name_of_thing = "Budget";
 
 {{ Form::close() }}
 
-</div>
+
 @endsection
