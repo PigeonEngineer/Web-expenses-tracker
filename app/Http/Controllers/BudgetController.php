@@ -19,11 +19,7 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        // $userId = Auth::id();
         $budgets = Budget::all();
-        // $budgets = Budget::where('id', '=', Auth::id())->get();
-        //
-        // return view("Budget/index");
         return View::make("Budget.index")->with("budgets", $budgets);
     }
 
