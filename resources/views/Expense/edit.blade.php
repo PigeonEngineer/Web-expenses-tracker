@@ -1,26 +1,19 @@
-
+@extends('layouts.main')
+@section('stuff')
 <?php
 $name_of_thing = "Expense";
  ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Look! I'm CRUDding</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
 <div class="container">
-
-  <nav class="navbar navbar-inverse">
-      <div class="navbar-header">
-          <a class="navbar-brand" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
-      </div>
-      <ul class="nav navbar-nav">
-          <li><a href="{{ URL::to('Expense') }}">View {{$name_of_thing}}s </a></li>
-          <li><a href="{{ URL::to('Expense/create') }}">Create a {{$name_of_thing}}</a>
-      </ul>
-  </nav>
-
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ URL::to('Expense/create') }}">Create a {{$name_of_thing}}</a>
+                </li>
+              </ul>
+  
+<br>
 <h1>Edit {{ $Expense->id }}</h1>
 
 <!-- if there are creation errors, they will show here -->
@@ -30,30 +23,29 @@ $name_of_thing = "Expense";
 
 
     <div class="form-group">
-        {!! Form::label('amount', 'expense amount') !!}
-        {!! Form::text('amount') !!}
+        {!! Form::label('amount', 'Expense amount:') !!}
+        {!! Form::text('amount',null, ['class' => 'form-control']) !!}
 
     </div>
 
     <div class="form-group">
-         {!! Form::label('comments', 'Comments') !!}
-         {!! Form::text('comments', 'Comments') !!}
+         {!! Form::label('comments', 'Comments: ') !!}
+         {!! Form::text('comments', 'Comments', ['class' => 'form-control']) !!}
      </div>
 
      <div class="form-group">
          {!! Form::label('creationTimeStamp', 'Timestamp:') !!}
          {{-- {!! Form::text('ToDateTime', 'budget end date') !!} --}}
-          <input type="date" id = "creationTimeStamp" name="ToDateTime">
+          <input class="form-control" type="date" id = "creationTimeStamp" name="ToDateTime">
      </div>
      <div class="form-group">
      {{Form::label('categorys_id','Category name')}}
     {!! Form::select('categories', $categories, null,array('class' => 'form-control')) !!}
     </div>
 
-    {{ Form::submit('Edit the Expense!', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Edit the Expense!', array('class' => 'btn btn-outline-danger')) }}
 
 {{ Form::close() }}
 
 </div>
-</body>
-</html>
+@endsection

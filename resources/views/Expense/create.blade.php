@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@extends('layouts.main')
+@section('stuff')
 <?php
 use Carbon\Carbon;
 use App\Budget;
@@ -6,24 +7,18 @@ use App\Expense;
 use App\Http\Controllers\Redirect;
 $name_of_thing = "Expense";
  ?>
-<html>
-<head>
-    <title>TODO:change my name</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
+
 <div class="container">
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ URL::to('Expense/create') }}">Create a {{$name_of_thing}}</a>
+                </li>
+              </ul>  
 
-  <nav class="navbar navbar-inverse">
-      <div class="navbar-header">
-          <a class="navbar-brand" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
-      </div>
-      <ul class="nav navbar-nav">
-          <li><a href="{{ URL::to('Expense') }}">View {{$name_of_thing}}s </a></li>
-          <li><a href="{{ URL::to('Expense/create') }}">Create a {{$name_of_thing}}</a>
-      </ul>
-  </nav>
-
+<br>
 <h1>Create a {{$name_of_thing}}</h1>
 
 <!-- if there are creation errors, they will show here -->
@@ -35,25 +30,24 @@ $name_of_thing = "Expense";
 {{-- <td>Categories id</td> --}}
 {{-- <td>Creation timestamp</td> --}}
     <div class="form-group">
-        {!! Form::label('amount', 'expense amount') !!}
-        {!! Form::text('amount') !!}
+        {!! Form::label('amount', 'Expense amount: ') !!}
+        {!! Form::text('amount', null, ['class' => 'form-control']) !!}
 
     </div>
 
     <div class="form-group">
-         {!! Form::label('comments', 'Comments') !!}
-         {!! Form::text('comments', 'Comments') !!}
+         {!! Form::label('comments', 'Comments: ') !!}
+         {!! Form::text('comments', 'Comments', ['class' => 'form-control']) !!}
      </div>
      <div class="form-group">
-     {{Form::label('categorys_id','Category name')}}
-    {!! Form::select('categories', $categories, null,array('class' => 'form-control')) !!}
+     {{Form::label('categorys_id','Category name: ')}}
+    {!! Form::select('categories', $categories, null, array('class' => 'form-control')) !!}
   </div>
 
 
-    {!! Form::submit('Create the Budget!', array('class' => 'btn btn-primary')) !!}
+    {!! Form::submit('Create the Expense!', array('class' => 'btn btn-outline-danger')) !!}
 
 {!! Form::close() !!}
 
 </div>
-</body>
-</html>
+@endsection
