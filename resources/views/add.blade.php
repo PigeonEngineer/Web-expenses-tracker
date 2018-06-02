@@ -67,6 +67,12 @@
           </div>
         </div>
       </form>
+      <div> <h1>Categories: </h1>
+        <?php foreach ($cat as $value) {
+          echo $value, ',', ' ';
+        }
+        ?> 
+      </div>
     </div>
   </div>
 </div>

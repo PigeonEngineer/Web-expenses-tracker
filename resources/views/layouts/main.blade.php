@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 
-    <title>Quick draft</title>
+    <title>Expenses Tracker</title>
   </head>
   <body id="bootstrap-overrides">
 
@@ -36,7 +36,7 @@
       </ul>
       <div class="btn-group">
         <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{$username}}  
+            {{ Auth::user()->name }}  
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <button class="dropdown-item" type="button">My Profile</button>
@@ -50,10 +50,9 @@
 <!--                                          sidebar                                                         -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <a href="http://localhost:8000/Budget">Budgets</a>
+  <a href="http://localhost:8000/statistics">Statistics</a>
+  <a href=http://localhost:8000/about>About/Contact</a>
 </div>
   
 <!--         ----------------------  main part of the page           ---------------------     -->
@@ -62,7 +61,8 @@
         <!--    --------------the grid system------------------------ -->
   <div class="container">
       <!--   -------------------row 1 --------------------------- -->
-    @yield ('stuff')
+  
+      @yield ('stuff')
         
   </div>
 </div>
