@@ -29,8 +29,8 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
-    
+
+
      public function index()
     {
       // get user id
@@ -38,14 +38,14 @@ class HomeController extends Controller
       $userName = User::find($userId)->name;
       // $userCategorys = Users_category::find($userId);
       $userCategorys = DB::table('users_categorys')
-      -> join ('categorys', 'users_categorys.categorys_id', '=', 'categorys.id')
+      -> join ('categories', 'users_categorys.categorys_id', '=', 'categories.id')
       -> where ('users_categorys.users_id', '=', $userId)
       ->get();
 
       $User_expenses = DB::table('expenses')
                 -> join ('users_expenses', 'expenses.id' ,'=','users_expenses.expenses_id')
                 -> join ('users', 'users.id', '=', 'users_expenses.users_id')
-                -> join ('categorys', 'expenses.categorys_id', '=', 'categorys.id')
+                -> join ('categories', 'expenses.categorys_id', '=', 'categories.id')
                 -> where ('users.id', '=', $userId)
                 ->get();
 
@@ -75,6 +75,6 @@ class HomeController extends Controller
 ];
       // $this->set('test',  $test);
         return view('home')->with($data);
-        
+
     }
 }
