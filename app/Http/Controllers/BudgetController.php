@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Redirect;
 use App\Budget;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use View;
+use Auth;
 use Illuminate\Http\Request;
+use Session;
 
 class BudgetController extends Controller
 {
@@ -14,8 +19,12 @@ class BudgetController extends Controller
      */
     public function index()
     {
+        // $userId = Auth::id();
+        $budgets = Budget::all();
+        // $budgets = Budget::where('id', '=', Auth::id())->get();
         //
-        return view("Budget/index");
+        // return view("Budget/index");
+        return View::make("Budget.index")->with("budgets", $budgets);
     }
 
     /**
@@ -25,7 +34,7 @@ class BudgetController extends Controller
      */
     public function create()
     {
-        //
+        return View::make("Budget.create");
     }
 
     /**
@@ -36,6 +45,30 @@ class BudgetController extends Controller
      */
     public function store(Request $request)
     {
+      $rules = array(
+          'fromDateTime'       => 'required',
+          'ToDateTime'      => 'required',
+          'amount' => 'required|numeric'
+      );
+      $validator = Validator::make(Input::all(), $rules);
+
+      // process the login
+      if ($validator->fails()) {
+          return Redirect::to('Budget/create')
+              ->withErrors($validator);
+              // ->withInput(Input::except('password'));
+      } else {
+          // store
+          $budget = new Budget;
+          $budget->amount       = Input::get('amount');
+          $budget->fromDateTime      = Input::get('fromDateTime');
+          $budget->ToDateTime = Input::get('ToDateTime');
+          $budget->save();
+
+          // redirect
+          Session::flash('message', 'Successfully created Budget!');
+          return Redirect::to("Budget");
+      }
         //
     }
 
@@ -45,9 +78,11 @@ class BudgetController extends Controller
      * @param  \App\Budget  $budget
      * @return \Illuminate\Http\Response
      */
-    public function show(Budget $budget)
+    public function show($id)
     {
-        //
+        $budget = Budget::find($id);
+        return View::make('Budget.show')
+            ->with('Budget', $budget);
     }
 
     /**
@@ -56,9 +91,11 @@ class BudgetController extends Controller
      * @param  \App\Budget  $budget
      * @return \Illuminate\Http\Response
      */
-    public function edit(Budget $budget)
+    public function edit($id)
     {
-        //
+        $budget = Budget::find($id);
+        return View::make('Budget.edit')
+            ->with('Budget', $budget);
     }
 
     /**
@@ -68,9 +105,34 @@ class BudgetController extends Controller
      * @param  \App\Budget  $budget
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Budget $budget)
+    public function update($id)
     {
-        //
+      // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'fromDateTime'       => 'required',
+            'ToDateTime'      => 'required',
+            'amount' => 'required|numeric'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('Budget/create')
+                ->withErrors($validator);
+                // ->withInput(Input::except('password'));
+        } else {
+            // store
+            $Budget = Budget::find($id);
+            $Budget->amount    = Input::get('amount');
+            $Budget->fromDateTime = Input::get('fromDateTime');
+            $Budget->ToDateTime = Input::get('ToDateTime');
+            $Budget->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated budget!');
+            return Redirect::to('Budget');
+        }
     }
 
     /**
@@ -79,8 +141,14 @@ class BudgetController extends Controller
      * @param  \App\Budget  $budget
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Budget $budget)
+    public function destroy($id)
     {
-        //
+      // delete
+      $Budget = Budget::find($id);
+      $Budget->delete();
+
+      // redirect
+      Session::flash('message', 'Successfully deleted the budget!');
+      return Redirect::to('Budget');
     }
 }
