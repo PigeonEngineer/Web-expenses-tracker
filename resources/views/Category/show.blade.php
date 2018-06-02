@@ -52,11 +52,11 @@ $name_of_thing = "Category expense";
                     <a class="btn btn-small ">
                 {{ Form::open(array('url' => 'Expense/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete this Expense', array('class' => 'btn btn-warning')) }}
+                    {{ Form::submit('Delete this Expense', array('class' => 'btn btn-outline-danger')) }}
                 {{ Form::close() }} </a>
-                <a class="btn btn-small btn-success" href="{{ URL::to('Expense/' . $value->id) }}">Show this {{$name_of_thing}}</a>
+                <a class="btn btn-small btn-outline-danger" href="{{ URL::to('Expense/' . $value->id) }}">Show this {{$name_of_thing}}</a>
 
-                <a class="btn btn-small btn-info" href="{{ URL::to('Expense/' . $value->id . '/edit') }}">Edit this {{$name_of_thing}}</a>
+                <a class="btn btn-small btn-outline-danger" href="{{ URL::to('Expense/' . $value->id . '/edit') }}">Edit this {{$name_of_thing}}</a>
 
             </td>
         </tr>
