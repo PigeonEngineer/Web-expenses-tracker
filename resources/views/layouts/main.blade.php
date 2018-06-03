@@ -56,28 +56,32 @@
 </div>
   
 <!--         ----------------------  main part of the page           ---------------------     -->
-<div id="main">
+<div id="main-footer">
+  <div id="main">
 
-      
-  <div class="container">
-      <!--   -------------------row 1 --------------------------- -->
-  
-      @yield ('stuff')
         
+    <div class="container">
+        <!--   -------------------row 1 --------------------------- -->
+    
+        @yield ('stuff')
+          
+    </div>
+
   </div>
-
+  <!-- -------------------------------------footer--------------------------------- -->
+  <div id="apaksa">
+    <div class="footer">
+    </div>
+    <div class="rights">
+      No rights reserved at all - plenty of totally borrowed content!
+    </div>
 </div>
-<!-- -------------------------------------footer--------------------------------- -->
-<div class="footer">
 </div>
-<div class="rights">
-	No rights reserved at all - plenty of totally borrowed content!
-</div>
-
-<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">Top</button>	<!----scroll button-->
+<!----scroll button-->
+<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">Top</button>	
 
 
-</div>
+{{-- </div> --}}
 
 
 
