@@ -8,4 +8,5 @@ class Users_category extends Model
 {
     //
     public $timestamps = false;
+    protected $table = 'users_categorys';
 }
