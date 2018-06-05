@@ -31,6 +31,13 @@ return [
     'expID' => 'Expense: ',
     'cat' => 'Category:',
     'allExp' => 'All expenses: ',
-    'catID' => 'Category\'s ID',  
+    'catID' => 'Category\'s ID',
+    //Budgets 
+    'budgets' => 'Budgets',
+    'from' => 'From', 
+    'to' => 'To',
+    'budget' => 'Budget ', 
+    'ceiling' => 'Budget Ceiling',
+    'addBudget' => 'Add a budget', 
 
 ];

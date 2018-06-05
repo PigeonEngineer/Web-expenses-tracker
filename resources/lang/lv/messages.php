@@ -31,5 +31,13 @@ return [
     'expID' => 'Tēriņš: ',
     'cat' => 'Kategorija:',
     'allExp' => 'Visi tēriņi: ',
-    'catID' => 'Kategorijas ID',  
+    'catID' => 'Kategorijas ID', 
+//Budgets 
+    'budgets' => 'Budžeti', 
+    'from' => 'No', 
+    'to' => 'Līdz', 
+    'budgets' => 'Budžeti',
+    'budget' => 'Budžets ',
+    'ceiling' => 'Makismālie tēriņi',
+    'addBudget' => 'Pievienot budžetu', 
 ];
