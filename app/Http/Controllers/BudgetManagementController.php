@@ -83,7 +83,7 @@ class BudgetManagementController extends Controller
     {
         $budget = Budget::find($id);
         return View::make('BudgetManagement.show')
-            ->with('BudgetManagement', $budget);
+            ->with('Budget', $budget);
     }
 
     /**

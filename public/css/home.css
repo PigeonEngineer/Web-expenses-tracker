@@ -57,6 +57,10 @@
     cursor: pointer;
 }
 /*****************************************bootstrap overrides********************************/
+.drop {
+    margin-right:1em;
+}
+
 #apaksa {
     position: fixed;
     left: 0;

@@ -10,7 +10,10 @@ return [
     'about' => 'About/Contacts',
     'top' => 'Top',
     'rights' => 'No rights reserved at all plenty of totally borrowed content!',
-    'usrmanage' => 'Lietotāju pārvaldība',
+    'usrmanage' => 'User Management',
+    'language' => 'Language',
+    'english' => 'English',
+    'latvian' => 'Latvian',
     
     //About page
     'about' => 'About',
@@ -40,7 +43,7 @@ return [
     'budget' => 'Budget ', 
     'ceiling' => 'Budget Ceiling',
     'addBudget' => 'Add a budget', 
-    'userBudgets' => 'Users\' budgets',
+    'userBudgets' => 'User budgets',
     //Users
     'allUsers' => 'All users', 
     'addUsers' => 'Add a user',  

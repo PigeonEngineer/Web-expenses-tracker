@@ -11,6 +11,9 @@ return [
     'top' => 'Uz Augšu',
     'rights' => 'Nekādas tiesības nav aizsargātas',
     'usrmanage' => 'Lietotāju pārvaldība',
+    'language' => 'Valoda',
+    'english' => 'Angļu',
+    'latvian' => 'Latviešu',
     
 //About page
     'about' => 'Par/Kontakti',

@@ -34,6 +34,16 @@
         </li>-->
         
       </ul>
+      <div class="btn-group drop">
+        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          @lang('messages.language')  
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" type="button" href="http://localhost:8000/en"> @lang('messages.english')</a>
+          <a class="dropdown-item" type="button" href="http://localhost:8000/lv">@lang('messages.latvian')</a>
+        </div>
+      </div>
+
       <div class="btn-group">
         <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ Auth::user()->name }}  

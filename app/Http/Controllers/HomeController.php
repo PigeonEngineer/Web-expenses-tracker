@@ -10,6 +10,8 @@ use App\Users_expense;
 use APP\Users_category;
 use App \Category;
 use DB;
+use App;
+use Session;
 
 class HomeController extends Controller
 {
@@ -21,6 +23,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('language_presist');
+        // $this->middleware('App\Http\Middleware\language_presist');
     }
 
     /**
@@ -33,8 +37,8 @@ class HomeController extends Controller
 
      public function index()
     {
-
-
+        
+        // App::setLocale(Session::get('applocale'));  
       // get user id
       $userId = Auth::id();
       $userName = User::find($userId)->name;
