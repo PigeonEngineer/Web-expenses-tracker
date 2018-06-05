@@ -7,7 +7,7 @@
     foreach ($users_categories as $users_category) {
       $cat[$i]=$users_category->name;
       $i++;
-     
+
     }
   function printCat ($value, $cat) {  ///kategoriju nosaukumu drukasana kategoriju blokos
     $skaits=count($cat);
@@ -51,7 +51,7 @@
         <div class="jumbotron">
           <div class="overlay">
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/1">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a> 
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
             </div>
           </div>
           <h1 class="display-4"> <?php printCat(0, $cat);//echo $cat[0];?></h1>
@@ -62,7 +62,7 @@
         <div class="jumbotron">
           <div class="overlay">
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/3">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a> 
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
             </div>
           </div>
         <h1 class="display-4"><?php printCat(1, $cat);?></h1>
@@ -76,7 +76,7 @@
         <div class="jumbotron">
           <div class="overlay">
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/2">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a> 
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
             </div>
           </div>
         <h1 class="display-4"><?php printCat(2, $cat);?></h1>
@@ -86,8 +86,8 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/4">View</a>  
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>         
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/4">View</a>
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
             </div>
           </div>
           <h1 class="display-4"><?php printCat(3, $cat)?></h1>

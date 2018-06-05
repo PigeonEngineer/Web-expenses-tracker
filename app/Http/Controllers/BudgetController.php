@@ -8,10 +8,15 @@ use Illuminate\Support\Facades\Input;
 use View;
 use Auth;
 use Illuminate\Http\Request;
+use Redirect;
 use Session;
 
 class BudgetController extends Controller
 {
+  public function __construct()
+{
+    $this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *

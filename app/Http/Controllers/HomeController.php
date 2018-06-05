@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Expense;
 use App\Users_expense;
@@ -33,6 +33,11 @@ class HomeController extends Controller
 
      public function index()
     {
+      if (Auth::check()) {
+    // The user is logged in...
+    if (Auth::user()->is_admin)
+    {
+
       // get user id
       $userId = Auth::id();
       $userName = User::find($userId)->name;
@@ -76,5 +81,7 @@ class HomeController extends Controller
       // $this->set('test',  $test);
         return view('home')->with($data);
 
+}
+}
     }
 }
