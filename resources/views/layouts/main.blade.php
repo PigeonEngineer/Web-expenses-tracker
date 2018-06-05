@@ -51,8 +51,8 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="http://localhost:8000/Budget">@lang('messages.budget')</a>
-  <a href="http://localhost:8000/statistics">Statistics</a>
-  <a href=http://localhost:8000/about>About/Contact</a>
+  <a href="http://localhost:8000/statistics">@lang('messages.stats')</a>
+  <a href=http://localhost:8000/about>@lang('messages.about')</a>
 </div>
   
 <!--         ----------------------  main part of the page           ---------------------     -->
@@ -73,12 +73,12 @@
     <div class="footer">
     </div>
     <div class="rights">
-      No rights reserved at all - plenty of totally borrowed content!
+      @lang('messages.rights')
     </div>
 </div>
 </div>
 <!----scroll button-->
-<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">Top</button>	
+<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">@lang('messages.top')</button>	
 
 
 {{-- </div> --}}

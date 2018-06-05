@@ -5,7 +5,7 @@
 
 
 @section('stuff')
-<h1> About</h1>
+<h1> @lang('messages.about')</h1>
 <br>
  <div class="row">
     <div class="col-12">
@@ -16,7 +16,7 @@
    <hr>
    <div class="row">
     <div class="col-12">
-      <h3> Creators: Patriks Misāns, Georgs Tumans </h3>
+      <h3> @lang('messages.creators'): Patriks Misāns, Georgs Tumans </h3>
     </div>
   </div>
 @endsection

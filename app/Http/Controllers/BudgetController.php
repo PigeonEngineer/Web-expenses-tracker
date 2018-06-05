@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Input;
 use View;
 use Auth;
 use Illuminate\Http\Request;
-use Redirect;
 use Session;
 
 class BudgetController extends Controller
