@@ -26,6 +26,7 @@ class ExpenseController extends Controller
   public function __construct()
 {
     $this->middleware('auth');
+    $this->middleware('App\Http\Middleware\AdminMiddleware');
 }
     /**
      * Display a listing of the resource.
