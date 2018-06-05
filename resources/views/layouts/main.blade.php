@@ -53,6 +53,9 @@
   <a href="http://localhost:8000/Budget">@lang('messages.budget')</a>
   <a href="http://localhost:8000/statistics">@lang('messages.stats')</a>
   <a href=http://localhost:8000/about>@lang('messages.about')</a>
+  @if (Auth::user() && Auth::user()->is_admin == true) 
+  <a href=http://localhost:8000/UserManagement>@lang('messages.usrmanage')</a>
+  @endif
 </div>
   
 <!--         ----------------------  main part of the page           ---------------------     -->

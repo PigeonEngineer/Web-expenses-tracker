@@ -11,7 +11,7 @@ $edit = trans('messages.editExp');
 
 <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="{{ URL::to('Budget') }}">{{trans_choice('messages.catexpense', 1)}}</a>
+      <a class="nav-link active" href="{{ URL::to('Budget') }}">{{trans_choice('messages.budgets', 1)}}</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ URL::to('Budget/create') }}">{{trans_choice('messages.add', 1)}}</a>

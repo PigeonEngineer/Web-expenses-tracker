@@ -14,7 +14,7 @@ $Budget = new Budget( );
 
 <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="{{ URL::to('Budget') }}">{{trans_choice('messages.catexpense', 1)}}</a>
+      <a class="nav-link active" href="{{ URL::to('Budget') }}">{{trans_choice('messages.budgets', 1)}}</a>
     </li>
     
   </ul>  

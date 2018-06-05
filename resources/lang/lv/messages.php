@@ -10,6 +10,7 @@ return [
     'about' => 'Par/Kontakti',
     'top' => 'Uz Augšu',
     'rights' => 'Nekādas tiesības nav aizsargātas',
+    'usrmanage' => 'Lietotāju pārvaldība',
     
 //About page
     'about' => 'Par/Kontakti',
@@ -39,5 +40,14 @@ return [
     'budgets' => 'Budžeti',
     'budget' => 'Budžets ',
     'ceiling' => 'Makismālie tēriņi',
-    'addBudget' => 'Pievienot budžetu', 
+    'addBudget' => 'Pievienot budžetu',
+    //Users
+    'allUsers' => 'Visi lietotāji',
+    'addUsers' => 'Pievienot lietotāju',
+    'name' => 'Vārds',
+    'mail' => 'Epasts',
+    'admin' => 'Ir admins',
+    'password' => 'Parole',
+    'user' => 'Lietotājs',
+      
 ];
