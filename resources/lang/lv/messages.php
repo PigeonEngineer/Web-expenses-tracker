@@ -41,6 +41,7 @@ return [
     'budget' => 'Budžets ',
     'ceiling' => 'Makismālie tēriņi',
     'addBudget' => 'Pievienot budžetu',
+    'userBudgets' => 'Lietotāju budžeti',
     //Users
     'allUsers' => 'Visi lietotāji',
     'addUsers' => 'Pievienot lietotāju',
@@ -49,5 +50,6 @@ return [
     'admin' => 'Ir admins',
     'password' => 'Parole',
     'user' => 'Lietotājs',
+    'userExpenses' => 'Lietotāju tēriņi',
       
 ];

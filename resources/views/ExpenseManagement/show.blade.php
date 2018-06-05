@@ -7,7 +7,7 @@ $name_of_thing = "Expense";
 
         <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ URL::to('ExpenseManagement') }}">{{trans_choice('messages.catexpense', 0)}}</a>
+                  <a class="nav-link active" href="{{ URL::to('ExpenseManagement') }}">{{trans_choice('messages.allExp', 0)}}</a>
                 </li>
 
               </ul>

@@ -40,6 +40,7 @@ return [
     'budget' => 'Budget ', 
     'ceiling' => 'Budget Ceiling',
     'addBudget' => 'Add a budget', 
+    'userBudgets' => 'Users\' budgets',
     //Users
     'allUsers' => 'All users', 
     'addUsers' => 'Add a user',  
@@ -49,5 +50,6 @@ return [
     'admin' => 'Is an admin',
     'password' => 'Password',
     'user' => 'User',
+    'userExpenses' => 'User Expenses',
 
 ];

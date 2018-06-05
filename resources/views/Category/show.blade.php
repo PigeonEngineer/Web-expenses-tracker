@@ -11,7 +11,7 @@ $random = trans('messages.delete');
 <div class="container">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ URL::to('Expense') }}">{{trans_choice('messages.catexpense', 0)}}</a>
+                  <a class="nav-link active" href="{{ URL::to('Expense') }}">{{trans_choice('messages.allExp', 0)}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ URL::to('Expense/create') }}"> @lang('messages.addCat')</a>
