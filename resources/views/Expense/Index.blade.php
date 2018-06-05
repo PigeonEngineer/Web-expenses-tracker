@@ -2,6 +2,7 @@
 @section('stuff')
 <?php
 $name_of_thing = "Expense";
+$random = trans('messages.delete');
 // use resources/views/app.blade.php;
  ?>
 
@@ -9,11 +10,9 @@ $name_of_thing = "Expense";
 <div class="container">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ URL::to('Expense') }}">{{$name_of_thing}}s</a>
+                  <a class="nav-link active" href="{{ URL::to('Expense') }}">{{trans_choice('messages.catexpense', 1)}}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ URL::to('Expense/create') }}">Create an {{$name_of_thing}}</a>
-                </li>
+                
               </ul> 
 
     {{-- <nav class="navbar navbar-inverse">
@@ -26,7 +25,7 @@ $name_of_thing = "Expense";
     </ul>
 </nav> --}}
 <br>
-<h1>All the {{$name_of_thing}}s</h1>
+<h1>@lang('messages.allExp')</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -37,10 +36,10 @@ $name_of_thing = "Expense";
     <thead>
         <tr>
             <td>ID</td>
-            <td>Amount</td>
-            <td>Categories id</td>
-            <td>Comments</td>
-            <td>Creation timestamp</td>
+            <td>@lang('messages.amount')</td>
+            <td>@lang('messages.catID')</td>
+            <td>@lang('messages.comment')</td>
+            <td>@lang('messages.time')</td>
         </tr>
     </thead>
     <tbody>
@@ -55,11 +54,11 @@ $name_of_thing = "Expense";
                     <a class="btn btn-small ">
                 {{ Form::open(array('url' => 'Expense/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete this Expense', array('class' => 'btn btn-warning')) }}
+                    {{ Form::submit($random, array('class' => 'btn btn-warning')) }}
                 {{ Form::close() }} </a>
-                <a class="btn btn-small btn-success" href="{{ URL::to('Expense/' . $value->id) }}">Show this {{$name_of_thing}}</a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('Expense/' . $value->id) }}">@lang('messages.showExp')</a>
 
-                <a class="btn btn-small btn-info" href="{{ URL::to('Expense/' . $value->id . '/edit') }}">Edit this {{$name_of_thing}}</a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('Expense/' . $value->id . '/edit') }}">@lang('messages.editExp')</a>
 
             </td>
         </tr>

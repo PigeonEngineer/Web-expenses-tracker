@@ -40,7 +40,7 @@
       <!--   -------------------row 1 --------------------------- -->
     <div class="row">
       <div class="col">
-        <h1>Categories at a glance:</h1>
+        <h1>@lang('messages.glance')</h1>
         <br>
       </div>
     </div>
@@ -50,8 +50,8 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/1">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/1">@lang('messages.view')</a>
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
             </div>
           </div>
           <h1 class="display-4"> <?php printCat(0, $cat);//echo $cat[0];?></h1>
@@ -61,8 +61,8 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/3">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/3">@lang('messages.view')</a>
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
             </div>
           </div>
         <h1 class="display-4"><?php printCat(1, $cat);?></h1>
@@ -75,8 +75,8 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/2">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/2">@lang('messages.view')</a>
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
             </div>
           </div>
         <h1 class="display-4"><?php printCat(2, $cat);?></h1>
@@ -86,8 +86,8 @@
       <div class="col-6">
         <div class="jumbotron">
           <div class="overlay">
-            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/4">View</a>
-              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">Add</a>
+            <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/4">@lang('messages.view')</a>
+              <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
             </div>
           </div>
           <h1 class="display-4"><?php printCat(3, $cat)?></h1>
@@ -98,7 +98,7 @@
     <!-- -----------------------------collapsable categories---------------------------- -->
     <p>
       <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Show more categories
+        @lang('messages.show')
       </button>
     </p>
     <div class="collapse" id="collapseExample">

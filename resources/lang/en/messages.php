@@ -14,13 +14,23 @@ return [
     //About page
     'about' => 'About',
     'creators' => 'Developers',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
-    'title' => 'Izdevumu Trakeris',
+    //Home page
+    'glance' => 'Categories at a glance:',
+    'view' => 'View',
+    'add' => 'Add',
+    'show' => 'Show more categories',
+    //Categories
+    'catexpense' => 'Category expense|Category expenses',
+    'addCat' => 'Add an expense',
+    'amount' => 'Amount',
+    'comment' => 'Comment',
+    'time' => 'Creation Time',
+    'delete' => 'Delete',
+    'showExp' => 'View',
+    'editExp' => 'Edit',
+    'expID' => 'Expense: ',
+    'cat' => 'Category:',
+    'allExp' => 'All expenses: ',
+    'catID' => 'Category\'s ID',  
 
 ];
