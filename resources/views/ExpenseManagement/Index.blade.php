@@ -10,7 +10,7 @@ $random = trans('messages.delete');
 <div class="container">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ URL::to('Expense') }}">{{trans_choice('messages.catexpense', 1)}}</a>
+                  <a class="nav-link active" href="{{ URL::to('ExpenseManagement') }}">{{trans_choice('messages.catexpense', 1)}}</a>
                 </li>
 
               </ul>
@@ -47,18 +47,18 @@ $random = trans('messages.delete');
         <tr>
             <td>{{ $value->id }}</td>
             <td>{{ $value->amount }}</td>
-            <td>{{ $value->name }}</td>
+            <td>{{ $value->categorys_id }}</td>
             <td>{{ $value->comments}}</td>
             <td>{{ $value->creationTimeStamp}}</td>
             <td class="col-6">
                     <a class="btn btn-small ">
-                {{ Form::open(array('url' => 'Expense/' . $value->id, 'class' => 'pull-right')) }}
+                {{ Form::open(array('url' => 'ExpenseManagement/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit($random, array('class' => 'btn btn-warning')) }}
                 {{ Form::close() }} </a>
-                <a class="btn btn-small btn-success" href="{{ URL::to('Expense/' . $value->id) }}">@lang('messages.showExp')</a>
+                <a class="btn btn-small btn-success" href="{{ URL::to('ExpenseManagement/' . $value->id) }}">@lang('messages.showExp')</a>
 
-                <a class="btn btn-small btn-info" href="{{ URL::to('Expense/' . $value->id . '/edit') }}">@lang('messages.editExp')</a>
+                <a class="btn btn-small btn-info" href="{{ URL::to('ExpenseManagement/' . $value->id . '/edit') }}">@lang('messages.editExp')</a>
 
             </td>
         </tr>

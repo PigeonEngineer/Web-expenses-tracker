@@ -9,14 +9,13 @@ use View;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
-use DB;
 
-class BudgetController extends Controller
+class BudgetManagementController extends Controller
 {
   public function __construct()
 {
     $this->middleware('auth');
-    // $this->middleware('App\Http\Middleware\AdminMiddleware');
+    $this->middleware('App\Http\Middleware\AdminMiddleware');
 }
     /**
      * Display a listing of the resource.
@@ -25,14 +24,8 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $budgets = DB::table('budgets')
-        ->join('categorys_budgets' , 'budgets.id', 'categorys_budgets.budgets_id' )
-        ->join('categories', 'categorys_budgets.categorys_id','categories.id' )
-        ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
-        ->where('users_categorys.users_id', '=', $user_id)
-        ->get();
-        return View::make("Budget.index")->with("budgets", $budgets);
+        $budgets = Budget::all();
+        return View::make("BudgetManagement.index")->with("budgets", $budgets);
     }
 
     /**
@@ -42,7 +35,7 @@ class BudgetController extends Controller
      */
     public function create()
     {
-        return View::make("Budget.create");
+        return View::make("BudgetManagement.create");
     }
 
     /**
@@ -88,29 +81,10 @@ class BudgetController extends Controller
      */
     public function show($id)
     {
-      $user_id = Auth::user()->id;
-      $user_budgets = DB::table('budgets')
-      ->select('budgets.id')
-      ->join('categorys_budgets' , 'budgets.id', 'categorys_budgets.budgets_id' )
-      ->join('categories', 'categorys_budgets.categorys_id','categories.id' )
-      ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
-      ->where('users_categorys.users_id', '=', $user_id)
-      ->get();
-
-
-      if($user_budgets->contains('id',$id))
-      {
         $budget = Budget::find($id);
-        return View::make('Budget.show')
-            ->with('Budget', $budget);
-      }
-      else
-      {
-        return View::make('Unauthorized'
-        );
-
+        return View::make('BudgetManagement.show')
+            ->with('BudgetManagement', $budget);
     }
-  }
 
     /**
      * Show the form for editing the specified resource.
@@ -120,27 +94,10 @@ class BudgetController extends Controller
      */
     public function edit($id)
     {
-      $user_id = Auth::user()->id;
-      $user_budgets = DB::table('budgets')
-      ->select('budgets.id')
-      ->join('categorys_budgets' , 'budgets.id', 'categorys_budgets.budgets_id' )
-      ->join('categories', 'categorys_budgets.categorys_id','categories.id' )
-      ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
-      ->where('users_categorys.users_id', '=', $user_id)
-      ->get();
-
-      if($user_budgets->contains('id',$id))
-      {
         $budget = Budget::find($id);
-        return View::make('Budget.edit')
+        return View::make('BudgetManagement.edit')
             ->with('Budget', $budget);
-      }
-      else
-      {
-        return View::make('Unauthorized'
-        );
     }
-  }
 
     /**
      * Update the specified resource in storage.
@@ -175,7 +132,7 @@ class BudgetController extends Controller
 
             // redirect
             Session::flash('message', 'Successfully updated budget!');
-            return Redirect::to('Budget');
+            return Redirect::to('BudgetManagement');
         }
     }
 
@@ -187,30 +144,12 @@ class BudgetController extends Controller
      */
     public function destroy($id)
     {
-      $user_id = Auth::user()->id;
-      $user_budgets = DB::table('budgets')
-      ->select('budgets.id')
-      ->join('categorys_budgets' , 'budgets.id', 'categorys_budgets.budgets_id' )
-      ->join('categories', 'categorys_budgets.categorys_id','categories.id' )
-      ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
-      ->where('users_categorys.users_id', '=', $user_id)
-      ->get();
-
-      if($user_budgets->contains('id',$id))
-      {
-        $Budget = Budget::find($id);
-        $Budget->delete();
-
-        // redirect
-        Session::flash('message', 'Successfully deleted the budget!');
-        return Redirect::to('Budget');
-      }
-      else
-      {
-        return View::make('Unauthorized'
-        );
       // delete
+      $Budget = Budget::find($id);
+      $Budget->delete();
 
+      // redirect
+      Session::flash('message', 'Successfully deleted the budget!');
+      return Redirect::to('Budget');
     }
-  }
 }

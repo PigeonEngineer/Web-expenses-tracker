@@ -20,9 +20,8 @@ use Auth;
 use Illuminate\Http\Request;
 use Session;
 use Carbon\Carbon;
-use DB;
 
-class ExpenseController extends Controller
+class ExpenseManagementController extends Controller
 {
   public function __construct()
 {
@@ -36,13 +35,8 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-      $user_id = Auth::user()->id;
-      $expenses = DB::table('expenses')
-      ->select('expenses.id','expenses.amount', 'expenses.comments', 'expenses.creationTimeStamp', 'categories.name')
-      ->join('categories', 'categories.id', 'expenses.categorys_id')
-      ->where('expenses.user_id', '=', $user_id)
-      ->get();
-      return View::make("Expense.index")->with("expenses", $expenses);
+      $expenses = Expense::all();
+      return View::make("ExpenseManagement.index")->with("expenses", $expenses);
     }
 
     /**
@@ -52,8 +46,9 @@ class ExpenseController extends Controller
      */
     public function create()
     {
+        // $categories =Category::all();
         $categories = Category::pluck('name','id');
-        return View::make("Expense.create",compact('categories', $categories));
+        return View::make("ExpenseManagement.create",compact('categories', $categories));
     }
 
     /**
@@ -64,7 +59,6 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-
       $rules = array(
           'categories'       => 'required',
           'comments'      => 'required',
@@ -74,7 +68,7 @@ class ExpenseController extends Controller
 
       // process the login
       if ($validator->fails()) {
-          return Redirect::to('Expense/create')
+          return Redirect::to('ExpenseManagement/create')
               ->withErrors($validator);
       } else {
           // store
@@ -87,7 +81,7 @@ class ExpenseController extends Controller
           $expenses->save();
           // redirect
           Session::flash('message', 'Successfully created Expenses!');
-          return Redirect::to("Expense");
+          return Redirect::to("ExpenseManagement");
       }
         //
     }
@@ -100,25 +94,11 @@ class ExpenseController extends Controller
      */
     public function show($id)
     {
-      $user_id = Auth::user()->id;
       $expense = Expense::find($id);
       $category = Category::find($expense->categorys_id);
-      $user_expenses = DB::table('expenses')
-      ->select('expenses.id')
-      ->where('expenses.user_id', '=', $user_id)
-      ->get();
-
-      if($user_expenses->contains('id',$id))
-      {
-        return View::make('Expense.show')
-            ->with('category', $category->name)
-            ->with('Expense', $expense);
-      }
-      else
-      {
-        return View::make('Unauthorized'
-        );
-      }
+      return View::make('ExpenseManagement.show')
+          ->with('category', $category->name)
+          ->with('Expense', $expense);
     }
 
     /**
@@ -129,25 +109,10 @@ class ExpenseController extends Controller
      */
     public function edit($id)
     {
-      $user_id = Auth::user()->id;
       $categories = Category::pluck('name','id');
       $expense = Expense::find($id);
-
-      $user_expenses = DB::table('expenses')
-      ->select('expenses.id')
-      ->where('expenses.user_id', '=', $user_id)
-      ->get();
-
-      if($user_expenses->contains('id',$id))
-      {
-        return View::make('Expense.edit', compact('categories', $categories))
-            ->with('Expense', $expense);
-      }
-      else
-      {
-        return View::make('Unauthorized'
-        );
-      }
+      return View::make('ExpenseManagement.edit', compact('categories', $categories))
+          ->with('Expense', $expense);
     }
 
     /**
@@ -171,7 +136,7 @@ class ExpenseController extends Controller
 
           // process the login
           if ($validator->fails()) {
-              return Redirect::to('Expense/create')
+              return Redirect::to('ExpenseManagement/create')
                   ->withErrors($validator);
           } else {
               // store
@@ -197,28 +162,12 @@ class ExpenseController extends Controller
      */
     public function destroy($id)
     {
-        $user_id = Auth::user()->id;
-
-        $user_expenses = DB::table('expenses')
-        ->select('expenses.id')
-        ->where('expenses.user_id', '=', $user_id)
-        ->get();
-
-        if($user_expenses->contains('id',$id))
-        {
-          $Expense = Expense::find($id);
-          $Expense->delete();
-
-          // redirect
-          Session::flash('message', 'Successfully deleted the expense!');
-          return Redirect::to('Expense');
-        }
-        else
-        {
-          return View::make('Unauthorized'
-          );
       // delete
+      $Expense = Expense::find($id);
+      $Expense->delete();
 
+      // redirect
+      Session::flash('message', 'Successfully deleted the expense!');
+      return Redirect::to('ExpenseManagement');
     }
-}
 }

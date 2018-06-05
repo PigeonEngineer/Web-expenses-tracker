@@ -26,6 +26,8 @@ Route::resource('Categorys_budget', 'Categorys_budgetController');
 Route::resource('Expense', 'ExpenseController');
 Route::resource('Setting', 'SettingController');
 Route::resource('UserManagement', 'UserManagementController');
+Route::resource('BudgetManagement', 'BudgetManagementController');
+Route::resource('ExpenseManagement', 'ExpenseManagementController');
 Route::resource('Users_expense', 'Users_expenseController');
 Route::get('statistics', 'StatisticsController@getStats');
 Route::get('about', 'AboutController@getAbout');

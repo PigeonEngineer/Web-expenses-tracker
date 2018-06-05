@@ -151,7 +151,7 @@ class UserManagementController extends Controller
     public function destroy($id)
     {
       // delete
-      $user = USer::find($id);
+      $user = User::find($id);
       $user->delete();
 
       // redirect
