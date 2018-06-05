@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Users_category;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -64,13 +66,30 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
     $isAdmin = False;
-//       if (isset($data['is_admin']))
-//       {
-//       if ($data['is_admin'] == "on")
-// {
-//   $isAdmin = true;
-// }
-// }
+        // Adding four defaults for the user.
+         // yes, it's ugly.
+
+
+         $id = User::max('id') +1;
+         $user_category1 = new Users_category;
+         $user_category1->users_id       = $id;
+         $user_category1->categorys_id      = 1;
+         $user_category1->save();
+
+         $user_category2 = new Users_category;
+         $user_category2->users_id       = $id;
+         $user_category2->categorys_id      = 2;
+         $user_category2->save();
+
+         $user_category3 = new Users_category;
+         $user_category3->users_id       = $id;
+         $user_category3->categorys_id      = 3;
+         $user_category3->save();
+
+         $user_category4 = new Users_category;
+         $user_category4->users_id       = $id;
+         $user_category4->categorys_id      = 4;
+         $user_category4->save();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
