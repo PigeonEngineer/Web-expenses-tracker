@@ -27,11 +27,15 @@ class BudgetController extends Controller
     {
         $user_id = Auth::user()->id;
         $budgets = DB::table('budgets')
+        ->select('budgets.id', 'budgets.fromDateTime', 'budgets.ToDateTime', 'budgets.amount')
         ->join('categorys_budgets' , 'budgets.id', 'categorys_budgets.budgets_id' )
         ->join('categories', 'categorys_budgets.categorys_id','categories.id' )
         ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
         ->where('users_categorys.users_id', '=', $user_id)
         ->get();
+
+
+
         return View::make("Budget.index")->with("budgets", $budgets);
     }
 
