@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 
-    <title>Expenses Tracker</title>
+    <title>@lang('messages.title')</title>
   </head>
   <body id="bootstrap-overrides">
 
@@ -22,7 +22,7 @@
     <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
     </div>
 
-    <a id="button" class="links navbar-brand " href="http://localhost:8000/">Expenses Tracker</a>
+    <a id="button" class="links navbar-brand " href="http://localhost:8000/">@lang('messages.title')  </a>
     <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,8 +39,8 @@
             {{ Auth::user()->name }}  
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">My Profile</button>
-          <button class="dropdown-item" type="button">Exit</button>
+          <button class="dropdown-item" type="button">@lang('messages.profile')</button>
+          <a class="dropdown-item" type="button" href="http://localhost:8000/logout">@lang('messages.exit')</a>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
 <!--                                          sidebar                                                         -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="http://localhost:8000/Budget">Budgets</a>
+  <a href="http://localhost:8000/Budget">@lang('messages.budget')</a>
   <a href="http://localhost:8000/statistics">Statistics</a>
   <a href=http://localhost:8000/about>About/Contact</a>
 </div>

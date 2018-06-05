@@ -33,10 +33,7 @@ class HomeController extends Controller
 
      public function index()
     {
-      if (Auth::check()) {
-    // The user is logged in...
-    if (Auth::user()->is_admin)
-    {
+
 
       // get user id
       $userId = Auth::id();
@@ -81,7 +78,6 @@ class HomeController extends Controller
       // $this->set('test',  $test);
         return view('home')->with($data);
 
-}
-}
+
     }
 }
