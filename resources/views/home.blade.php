@@ -47,7 +47,7 @@
         <!--   -------------------row 2 --------------------------- -->
     <div class="row">
       <div class="col-6">
-        <div class="jumbotron" id="work"> 
+        <div class="jumbotron" id="work">
           <div class="overlay" >
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/1">@lang('messages.view')</a>
               <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
@@ -108,8 +108,20 @@
     <div class="collapse" id="collapseExample">
       <div id="inserthere">
 
-        <div class="row">
-          <div class="col-6">
+
+          <div class="row">
+
+            @foreach($users_categories as $users_category)
+  @if ($users_category->id >4 )
+  <div class="row">
+    <div class="col-6">
+      <div class="jumbotron">
+        <h1 class="display-4"><?php echo $users_category->name ?></h1>
+        <hr class="my-4">p
+      </div>
+    @endif
+@endforeach
+    <!--      <div class="col-6">
             <div class="jumbotron">
               <h1 class="display-4"><?php printCat(4, $cat);?></h1>
               <hr class="my-4">
@@ -121,7 +133,7 @@
               <hr class="my-4">
             </div>
           </div>
-        </div> 
+        </div>
 
         <div class="row">
           <div class="col-6">
@@ -151,8 +163,7 @@
               <hr class="my-4">
             </div>
           </div>
-        </div>
-
+        </div> -->
       </div>
     </div>
 

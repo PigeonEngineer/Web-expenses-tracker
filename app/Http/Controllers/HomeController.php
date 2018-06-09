@@ -37,8 +37,8 @@ class HomeController extends Controller
 
      public function index()
     {
-        
-        // App::setLocale(Session::get('applocale'));  
+
+        // App::setLocale(Session::get('applocale'));
       // get user id
       $userId = Auth::id();
       $userName = User::find($userId)->name;
@@ -73,6 +73,7 @@ class HomeController extends Controller
       // }
 
       // $User_expenses = $User_expenses->groupBy('name');
+      // dd($userCategorys);
        $data = [
           'username'  => $userName,
           'userId' => $userId,
