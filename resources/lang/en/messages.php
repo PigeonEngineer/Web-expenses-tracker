@@ -54,5 +54,6 @@ return [
     'password' => 'Password',
     'user' => 'User',
     'userExpenses' => 'User Expenses',
-
+    //Profile
+    
 ];
