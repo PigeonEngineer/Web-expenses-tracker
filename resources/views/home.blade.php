@@ -8,7 +8,6 @@
       $cat[$i]=$users_category->name;
       $i++;
     }
-    setcookie("MyCookie", $i);
   function printCat ($value, $cat) {  ///kategoriju nosaukumu drukasana kategoriju blokos
     $skaits=count($cat);
     if ($value<=$skaits-1) {
