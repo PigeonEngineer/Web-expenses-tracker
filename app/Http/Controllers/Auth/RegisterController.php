@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Users_category;
 use DB;
+use Redirect;
 
 class RegisterController extends Controller
 {
@@ -68,9 +69,24 @@ class RegisterController extends Controller
     $isAdmin = False;
         // Adding four defaults for the user.
          // yes, it's ugly.
+         //
+         // $user = new User;
+         // $user->name = $data['name'];
+         // $user->email = $data['email'];
+         // $user->password = Hash::make($data['password']);
+         // $user->is_admin = $isAdmin;
+         // $user->save();
+
+          $user = User::create([
+             'name' => $data['name'],
+             'email' => $data['email'],
+             'password' => Hash::make($data['password']),
+             'is_admin' => $isAdmin,
+         ]);
+
+         $id = $user->id;
 
 
-         $id = User::max('id') +1;
          $user_category1 = new Users_category;
          $user_category1->users_id       = $id;
          $user_category1->categorys_id      = 1;
@@ -90,11 +106,17 @@ class RegisterController extends Controller
          $user_category4->users_id       = $id;
          $user_category4->categorys_id      = 4;
          $user_category4->save();
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'is_admin' => $isAdmin,
-        ]);
+
+
+
+
+         return $user;
+        // return Redirect::to('/');
+        // User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'is_admin' => $isAdmin,
+        // ]);
     }
 }
