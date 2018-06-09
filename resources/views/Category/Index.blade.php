@@ -10,14 +10,14 @@ $random = trans('messages.delete');
 <div class="container">
   <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="{{ URL::to('Category') }}">{{trans_choice('messages.allExp', 0)}}</a>
+            <a class="nav-link active" href="{{ URL::to('Category') }}">{{trans_choice('messages.cats', 0)}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ URL::to('Category/create') }}"> @lang('messages.addCat')</a>
+            <a class="nav-link" href="{{ URL::to('Category/create') }}"> @lang('messages.Addcats')</a>
           </li>
-        </ul>Category
+        </ul>
 <br>
-<h1>Categorijas</h1>
+<h1> @lang('messages.cats')</h1>
 
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
@@ -28,7 +28,7 @@ $random = trans('messages.delete');
     <thead>
         <tr>
             <td>ID</td>
-            <td>Name</td>
+            <td>@lang('messages.catname')</td>
         </tr>
     </thead>
     <tbody>

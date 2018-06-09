@@ -91,9 +91,37 @@
     box-shadow: 0px 15px 50px #888888;
     border-bottom: 4px solid rgb(204, 65, 31);
 }
+
 #bootstrap-overrides .jumbotron {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: relative;
+    color: rgb(0, 0, 0);
+    text-overflow: ellipsis;
+}
+#bootstrap-overrides .hidden {
+    display:none;
+}
+#bootstrap-overrides .jumbotron h1 {
+    /* font-weight: bold; */
+}
+#bootstrap-overrides #work {
+    background-image: url(../pictures/work.jpg);
+    background-size: 100% 100%;
+     
+}
+#bootstrap-overrides #life {
+    background-image: url(../pictures/live.png);
+    background-size: 100% 100%;
+     
+}
+#bootstrap-overrides #ent {
+    background-image: url(../pictures/PlaceHolder_Image.jpg);
+    background-size: 100% 100%;
+     
+}
+#bootstrap-overrides #food {
+    background-image: url(../pictures/food.jpg);
+    background-size: 100% 100%;
 }
 #bootstrap-overrides {
     font-family: 'Titillium Web', sans-serif !important; 

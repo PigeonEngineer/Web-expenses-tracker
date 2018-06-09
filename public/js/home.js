@@ -13,6 +13,7 @@ function setColors () {
 window.onload = function() {
   
     setColors();
+    addCat();
     
     
 }
@@ -57,4 +58,22 @@ function changeColor (color) {
     //ColoSet=true;
     //localStorage.bgcolor = color;
     return false;
+}
+
+function addCat() {
+     
+    // create a new div element 
+        // var newDiv = document.createElement("div");
+        // var newDiv2 = document.createElement("div"); 
+        // // and give it some content 
+        // newDiv.className='Jumbotron';
+        // newDiv2.className='Jumbotron';
+        // var newContent = document.createTextNode("Hi there and greetings!"); 
+        // // add the text node to the newly created div
+        // newDiv.appendChild(newContent);  
+      
+        // // add the newly created element and its content into the DOM 
+        // var element = document.getElementById("inserthere");
+        // element.appendChild(newDiv);   
+      
 }

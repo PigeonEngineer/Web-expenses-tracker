@@ -14,6 +14,7 @@ return [
     'language' => 'Valoda',
     'english' => 'Angļu',
     'latvian' => 'Latviešu',
+    'catcon' => 'Pārvaldīt kategorijas',
     
 //About page
     'about' => 'Par/Kontakti',
@@ -36,6 +37,9 @@ return [
     'cat' => 'Kategorija:',
     'allExp' => 'Visi tēriņi: ',
     'catID' => 'Kategorijas ID', 
+    'cats' => 'Kategorijas',
+    'Addcats' => 'Pievienot kategoriju',
+    'catname' => 'Nosaukums', 
 //Budgets 
     'budgets' => 'Budžeti', 
     'from' => 'No', 

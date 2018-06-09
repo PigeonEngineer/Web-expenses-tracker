@@ -7,8 +7,8 @@
     foreach ($users_categories as $users_category) {
       $cat[$i]=$users_category->name;
       $i++;
-
     }
+    setcookie("MyCookie", $i);
   function printCat ($value, $cat) {  ///kategoriju nosaukumu drukasana kategoriju blokos
     $skaits=count($cat);
     if ($value<=$skaits-1) {
@@ -48,8 +48,8 @@
         <!--   -------------------row 2 --------------------------- -->
     <div class="row">
       <div class="col-6">
-        <div class="jumbotron">
-          <div class="overlay">
+        <div class="jumbotron" id="work"> 
+          <div class="overlay" >
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/1">@lang('messages.view')</a>
               <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
             </div>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="jumbotron">
+        <div class="jumbotron" id="life">
           <div class="overlay">
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/3">@lang('messages.view')</a>
               <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
@@ -73,18 +73,20 @@
 <!-- --------------------------------------------------- row 3 ------------------- -->
     <div class="row">
       <div class="col-6">
-        <div class="jumbotron">
+        <div class="jumbotron" id="food">
+          <div>
           <div class="overlay">
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/2">@lang('messages.view')</a>
               <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
             </div>
           </div>
+        </div>
         <h1 class="display-4"><?php printCat(2, $cat);?></h1>
           <hr class="my-4">
         </div>
       </div>
       <div class="col-6">
-        <div class="jumbotron">
+        <div class="jumbotron" id="ent">
           <div class="overlay">
             <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/4">@lang('messages.view')</a>
               <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
@@ -100,9 +102,12 @@
       <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         @lang('messages.show')
       </button>
+      <a class="btn  btn-outline-danger" type="button" href="http://localhost:8000/Category">
+        @lang('messages.catcon')
+      </a>
     </p>
     <div class="collapse" id="collapseExample">
-      <div>
+      <div id="inserthere">
 
         <div class="row">
           <div class="col-6">
@@ -117,7 +122,7 @@
               <hr class="my-4">
             </div>
           </div>
-        </div>
+        </div> 
 
         <div class="row">
           <div class="col-6">
@@ -158,7 +163,8 @@
         <h1> The data of the currently logged in user:</h1>
         <?php
           echo 'UserId:',$userId, '<br>';
-          echo 'username: ',$username,  '<br>';?>
+          echo 'username: ',$username,  '<br>';
+        ?>
         <h1> User's categories: </h1>
         <?php
           foreach ($cat as $value) {

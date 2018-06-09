@@ -14,6 +14,7 @@ return [
     'language' => 'Language',
     'english' => 'English',
     'latvian' => 'Latvian',
+    'catcon' => 'Manage Categories',
     
     //About page
     'about' => 'About',
@@ -36,6 +37,9 @@ return [
     'cat' => 'Category:',
     'allExp' => 'All expenses: ',
     'catID' => 'Category\'s ID',
+    'cats' => 'Categories',
+    'Addcats' => 'Add a category',
+    'catname' => 'Name',
     //Budgets 
     'budgets' => 'Budgets',
     'from' => 'From', 

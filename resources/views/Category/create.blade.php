@@ -9,16 +9,15 @@ $from = trans('messages.from');
 $to = trans('messages.to');
 $ceiling = trans('messages.ceiling');
 $create = trans('messages.add');
+$cat = trans('messages.catname');
  ?>
 
  <ul class="nav nav-tabs">
          <li class="nav-item">
-           <a class="nav-link active" href="{{ URL::to('Category') }}">{{trans_choice('messages.allExp', 0)}}</a>
+           <a class="nav-link active" href="{{ URL::to('Category') }}">{{trans_choice('messages.cats', 0)}}</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="{{ URL::to('Category/create') }}"> @lang('messages.addCat')</a>
-         </li>
-       </ul>Category
+         
+       </ul>
 {{-- <nav class="navbar navbar-inverse">
     <div class="navbar-header">
         <a class="navbar-brand" href="{{ URL::to('Budget') }}">{{$name_of_thing}}s</a>
@@ -30,7 +29,7 @@ $create = trans('messages.add');
 </nav> --}}
 <br>
 {{-- <h1>@lang('messages.addBudget') </h1> --}}
-<h1>add a category</h1>
+<h1>@lang('messages.Addcats')</h1>
 
 <!-- if there are creation errors, they will show here -->
 {{ Html::ul($errors->all()) }}
@@ -39,8 +38,8 @@ $create = trans('messages.add');
 
 
 <div class="form-group">
-     {!! Form::label('name', 'the name of the category') !!}
-     {!! Form::text('name', 'name', ['class' => 'form-control']) !!}
+     {!! Form::label('name', $cat) !!}
+     {!! Form::text('name', $cat, ['class' => 'form-control']) !!}
  </div>
 
     {!! Form::submit($create, array('class' => 'btn btn-outline-danger')) !!}
