@@ -54,5 +54,5 @@ return [
     'password' => 'Parole',
     'user' => 'Lietotājs',
     'userExpenses' => 'Lietotāju tēriņi',
-      
+    
 ];

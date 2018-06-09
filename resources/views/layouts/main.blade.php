@@ -49,7 +49,7 @@
             {{ Auth::user()->name }}  
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">@lang('messages.profile')</button>
+          <a class="dropdown-item" type="button" href="http://localhost:8000/profile">@lang('messages.profile')</a>
           <a class="dropdown-item" type="button" href="http://localhost:8000/logout">@lang('messages.exit')</a>
         </div>
       </div>

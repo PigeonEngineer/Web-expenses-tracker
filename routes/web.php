@@ -15,9 +15,7 @@
 //     return view('Budget/Index-noTmp');
 //  });
 
-Route::get('about', function () {
-    return view('about');
-});
+
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::resource('Budget', 'BudgetController');
@@ -31,7 +29,7 @@ Route::resource('ExpenseManagement', 'ExpenseManagementController');
 Route::resource('Users_expense', 'Users_expenseController');
 Route::get('statistics', 'StatisticsController@getStats');
 Route::get('about', 'AboutController@getAbout');
-
+Route::get('profile', 'ProfileController@getProfile');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
