@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Redirect;
 use App\Category;
+use App\Users_category;
 use App\Budget;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -24,6 +25,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
+      $user_id = Auth::user()->id;
+      $categories = DB::table('categories')
+      ->select('categories.id','categories.name')
+      ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
+      ->where('users_categorys.users_id', '=', $user_id)
+      ->get();
+      return View::make("Category.index")->with("categories", $categories);
         //
     }
     public function __construct()
@@ -38,7 +47,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return View::make("Category.create");
     }
 
     /**
@@ -49,7 +58,32 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules = array(
+          'name'       => 'required'
+      );
+      $validator = Validator::make(Input::all(), $rules);
+
+      // process the login
+      if ($validator->fails()) {
+          return Redirect::to('Category/create')
+              ->withErrors($validator);
+              // ->withInput(Input::except('password'));
+      } else {
+
+          // Auth::user()->id
+         $category = new Category;
+         $category->name = Input::get('name');
+         $category->save();
+
+         $category_user = new Users_category;
+         $category_user->users_id = Auth::user()->id;
+         $category_user->categorys_id = $category->id;
+         $category_user->save();
+
+          // redirect
+          Session::flash('message', 'Successfully created Budget!');
+          return Redirect::to("Category");
+      }
     }
 
     /**
@@ -81,9 +115,32 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+
+      $user_id = Auth::user()->id;
+      // $categories = Category::pluck('name','id');
+      // $expense = Expense::find($id);
+      $users_categories = DB::table('users_categorys')
+      ->select('categories.id')
+      ->join('categories', 'categories.id', 'users_categorys.categorys_id')
+      ->where('users_categorys.users_id', '=', $user_id)
+      ->where('users_categorys.categorys_id', '=', $id)
+      ->get();
+
+
+
+      if($users_categories->contains('id',$id))
+      {
+        $category = Category::find($id);
+          return View::make('Category.edit')->with('Category', $category);
+      }
+      else
+      {
+        return View::make('Unauthorized'
+        );
+      }
+
     }
 
     /**
@@ -93,9 +150,27 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update($id)
     {
-        //
+      $rules = array(
+          'name'       => 'required'
+      );
+      $validator = Validator::make(Input::all(), $rules);
+
+      // process the login
+      if ($validator->fails()) {
+          return Redirect::to('Category/edit')
+              ->withErrors($validator);
+      } else {
+          // store
+          $category = Category::find($id);
+          $category->name    = Input::get("name");
+          $category->save();
+
+          // redirect
+          Session::flash('message', 'Successfully updated Expense!');
+          return Redirect::to('Category');
+      }
     }
 
     /**
@@ -104,8 +179,34 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+
+      $user_id = Auth::user()->id;
+
+      $users_categories = DB::table('categories')
+      ->select('categories.id')
+      ->leftJoin('users_categorys', 'categories.id', 'users_categorys.categorys_id')
+      ->where('users_categorys.users_id', '=', $user_id)
+      ->where('users_categorys.categorys_id', '=', $id)
+      ->get();
+
+
+      if($users_categories->contains('id',$id))
+      {
+        $category = Category::find($id);
+        $category->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the expense!');
+        return Redirect::to('Category');
+      }
+      else
+      {
+        return View::make('Unauthorized'
+        );
+    // delete
+
+  }
     }
 }

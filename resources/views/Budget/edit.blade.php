@@ -16,7 +16,7 @@ $edit = trans('messages.editExp');
     <li class="nav-item">
         <a class="nav-link" href="{{ URL::to('Budget/create') }}">{{trans_choice('messages.add', 1)}}</a>
       </li>
-  </ul> 
+  </ul>
 <br>
 <h1>@lang('messages.editExp') {{ $Budget->id }}</h1>
 
