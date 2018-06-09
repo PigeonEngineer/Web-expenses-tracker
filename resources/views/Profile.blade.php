@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 @section('stuff')
-<h1> @lang('messages.profile')</h1>
+<h1> @lang('messages.profile') - {{ Auth::user()->name }}</h1>
 <br>
  <div class="row">
     <div class="col-12">
       <h2>@lang('messages.col') </h2>
       <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-outline-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           @lang('messages.drop')
         </a>
       

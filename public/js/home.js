@@ -11,11 +11,8 @@ function setColors () {
     } 
 }
 window.onload = function() {
-  
     setColors();
-    addCat();
-    
-    
+    addCat(); 
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
@@ -77,3 +74,20 @@ function addCat() {
         // element.appendChild(newDiv);   
       
 }
+var pressed=false; 
+function text () {
+    var text=document.getElementById('show');
+     if (pressed==false) {
+         pressed=true;
+         text.innerHTML="Hide Categories";
+     }
+     else {
+         pressed=false;
+         text.innerHTML= "Show more categories";
+     }
+     
+
+
+ }
+
+ 

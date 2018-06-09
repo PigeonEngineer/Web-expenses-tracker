@@ -96,79 +96,45 @@
         </div>
       </div>
     </div>
+    
     <!-- -----------------------------collapsable categories---------------------------- -->
     <p>
-      <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn  btn-outline-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"  id="show" onclick="text()"> 
+         
         @lang('messages.show')
       </button>
       <a class="btn  btn-outline-danger" type="button" href="http://localhost:8000/Category">
         @lang('messages.catcon')
       </a>
     </p>
+    <br>
+    <br>
     <div class="collapse" id="collapseExample">
-      <div id="inserthere">
-
-
-          <div class="row">
-
+      <div id="elements">
+         
             @foreach($users_categories as $users_category)
-  @if ($users_category->id >4 )
-  <div class="row">
-    <div class="col-6">
-      <div class="jumbotron">
-        <h1 class="display-4"><?php echo $users_category->name ?></h1>
-        <hr class="my-4">p
-      </div>
-    @endif
-@endforeach
-    <!--      <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php printCat(4, $cat);?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php printCat(5, $cat);?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
+           @if ($users_category->id >4 )
+      <div class="row">
+          <div class="col-12">
+              <div class="jumbotron ">
+                  <div class="overlay">
+                  <div class="overlay_text"> <a class="fadeboxtext" href="http://localhost:8000/Category/{{$users_category->categorys_id}}">@lang('messages.view')</a>
+                      <a class="fadeboxtext" href="{{ URL::to('Expense/create') }}">@lang('messages.add')</a>
+                    </div>
+                  </div>
+                  <h1 class="display-4"><?php echo $users_category->name?></h1>
+                  <hr class="my-4">
+                </div>
         </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php printCat(6, $cat);?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php printCat(7, $cat);?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
         </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php printCat(8, $cat);;?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="jumbotron">
-              <h1 class="display-4"><?php printCat(9, $cat);?></h1>
-              <hr class="my-4">
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </div>
-
+           @endif
+          @endforeach
+             
+    
+    
+</div>
    <!-- --------------------------------------------------- row 4 ------------------- -->
-    <div class="row">
+    <!--<div class="row">
       <div class="col-12">
         <h1> The data of the currently logged in user:</h1>
         <?php
@@ -182,7 +148,7 @@
           }
           ?>
       </div>
-    </div>
+    </div> -->
   </div>
-</div>
+
 @endsection

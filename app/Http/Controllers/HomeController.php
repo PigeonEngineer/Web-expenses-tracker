@@ -73,7 +73,7 @@ class HomeController extends Controller
       // }
 
       // $User_expenses = $User_expenses->groupBy('name');
-      // dd($userCategorys);
+    //   dd($userCategorys);
        $data = [
           'username'  => $userName,
           'userId' => $userId,

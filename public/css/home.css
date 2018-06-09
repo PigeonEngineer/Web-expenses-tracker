@@ -131,6 +131,10 @@
     color: rgb(204, 65, 31);
     cursor: pointer;
 }
+.element:last-child {
+    border-bottom:thick;
+    margin-bottom:0;
+}
 
 
 /***********************footer****************************************/
