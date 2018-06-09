@@ -32,21 +32,21 @@
         <!--<li class="nav-item active">
           <a class="nav-link " href="http://localhost:8000">Home <span class="sr-only">(current)</span></a>
         </li>-->
-        
+
       </ul>
       <div class="btn-group drop">
         <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          @lang('messages.language')  
+          @lang('messages.language')
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" type="button" href="http://localhost:8000/en"> @lang('messages.english')</a>
-          <a class="dropdown-item" type="button" href="http://localhost:8000/lv">@lang('messages.latvian')</a>
+          <a class="dropdown-item" type="button" href="http://localhost:8000/setLocale/en"> @lang('messages.english')</a>
+          <a class="dropdown-item" type="button" href="http://localhost:8000/setLocale/lv">@lang('messages.latvian')</a>
         </div>
       </div>
 
       <div class="btn-group">
         <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->name }}  
+            {{ Auth::user()->name }}
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" type="button" href="http://localhost:8000/profile">@lang('messages.profile')</a>
@@ -63,23 +63,23 @@
   <a href="http://localhost:8000/Budget">@lang('messages.budget')</a>
   <a href="http://localhost:8000/statistics">@lang('messages.stats')</a>
   <a href=http://localhost:8000/about>@lang('messages.about')</a>
-  @if (Auth::user() && Auth::user()->is_admin == true) 
+  @if (Auth::user() && Auth::user()->is_admin == true)
   <a href=http://localhost:8000/UserManagement>@lang('messages.usrmanage')</a>
   <a href=http://localhost:8000/ExpenseManagement>@lang('messages.userExpenses')</a>
   <a href=http://localhost:8000/BudgetManagement>@lang('messages.userBudgets')</a>
   @endif
 </div>
-  
+
 <!--         ----------------------  main part of the page           ---------------------     -->
 <div id="main-footer">
   <div id="main">
 
-        
+
     <div class="container">
         <!--   -------------------row 1 --------------------------- -->
-    
+
         @yield ('stuff')
-          
+
     </div>
 
   </div>
@@ -93,7 +93,7 @@
 </div>
 </div>
 <!----scroll button-->
-<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">@lang('messages.top')</button>	
+<button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">@lang('messages.top')</button>
 
 
 {{-- </div> --}}

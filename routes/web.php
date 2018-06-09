@@ -33,3 +33,8 @@ Route::get('profile', 'ProfileController@getProfile');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
+Route::get('setLocale/{locale}', function ($locale) {
+    \Session::put('locale', $locale);
+    return redirect()->back();
+});
