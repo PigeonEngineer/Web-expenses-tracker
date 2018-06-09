@@ -55,5 +55,9 @@ return [
     'user' => 'User',
     'userExpenses' => 'User Expenses',
     //Profile
-    
+    'drop' => 'Select',
+    'def' => 'Default',
+    'red' => 'Red',
+    'green' => 'Green',
+    'col' => 'Set the background color',
 ];

@@ -54,5 +54,10 @@ return [
     'password' => 'Parole',
     'user' => 'Lietotājs',
     'userExpenses' => 'Lietotāju tēriņi',
-    
+    //Profile
+    'drop' => 'Izvēlēties',
+    'def' => 'Noklusējums',
+    'red' => 'Sarkans',
+    'green' => 'Zaļš',
+    'col' => 'Iestatīt fona krāsu',
 ];
