@@ -77,7 +77,7 @@ class UserManagementController extends Controller
           // $user->user_id = Auth::user()->id;
           $user->save();
           // redirect
-          Session::flash('message', 'Successfully created User!');
+          Session::flash('message', 'User created!');
           return Redirect::to("User");
       }
     }
@@ -137,7 +137,7 @@ class UserManagementController extends Controller
             $user->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated User!');
+            Session::flash('message', 'User updated!');
             return Redirect::to('UserManagement');
         }
     }
@@ -155,7 +155,7 @@ class UserManagementController extends Controller
       $user->delete();
 
       // redirect
-      Session::flash('message', 'Successfully deleted the user!');
+      Session::flash('message', 'User deleted!');
       return Redirect::to('UserManagement');
     }
 }

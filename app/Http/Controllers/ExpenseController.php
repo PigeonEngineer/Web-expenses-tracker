@@ -86,7 +86,7 @@ class ExpenseController extends Controller
           $expenses->user_id = Auth::user()->id;
           $expenses->save();
           // redirect
-          Session::flash('message', 'Successfully created Expenses!');
+          Session::flash('message', 'Expense created!');
           return Redirect::to("Expense");
       }
         //
@@ -184,7 +184,7 @@ class ExpenseController extends Controller
               $input = Input::all();
 
               // redirect
-              Session::flash('message', 'Successfully updated Expense!');
+              Session::flash('message', 'Expense updated!');
               return Redirect::to('Expense');
           }
     }
@@ -210,7 +210,7 @@ class ExpenseController extends Controller
           $Expense->delete();
 
           // redirect
-          Session::flash('message', 'Successfully deleted the expense!');
+          Session::flash('message', 'Expense deleted!');
           return Redirect::to('Expense');
         }
         else

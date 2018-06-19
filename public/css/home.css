@@ -140,13 +140,13 @@
 /***********************footer****************************************/
 .footer {
 	height:2em;
-	background-color: rgb(22, 17, 17);
-    margin-top: 50px;
+    background-color: rgb(22, 17, 17);
+   
     
 	overflow: auto;
 	color: rgb(29, 24, 20);
 	position: relative;
-	 box-shadow: 0px 0px 30px  #888888;
+	box-shadow: 0px 0px 30px  #888888;
 }
 
 	/***************************************************the footer footer**************************************************/
@@ -156,7 +156,7 @@
 	color: rgba(255, 23, 15, 0.938);
 	text-align: center;
     font-size: 13px;
-    margin-bottom: none;
+    
 }
 
 /***************************scoll button*********************************************/

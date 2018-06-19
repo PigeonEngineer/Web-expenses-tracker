@@ -19,7 +19,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="ham"style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
+    <div class="ham" style="font-size:2em; color: white; padding-right: 10px"><i class="fas fa-align-justify" onclick="openNav()"></i>
     </div>
 
     <a id="button" class="links navbar-brand " href="http://localhost:8000/">@lang('messages.title')  </a>
@@ -39,8 +39,8 @@
           @lang('messages.language')
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" type="button" href="http://localhost:8000/setLocale/en"> @lang('messages.english')</a>
-          <a class="dropdown-item" type="button" href="http://localhost:8000/setLocale/lv">@lang('messages.latvian')</a>
+          <a class="dropdown-item"  href="http://localhost:8000/setLocale/en"> @lang('messages.english')</a>
+          <a class="dropdown-item"  href="http://localhost:8000/setLocale/lv">@lang('messages.latvian')</a>
         </div>
       </div>
 
@@ -49,8 +49,8 @@
             {{ Auth::user()->name }}
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" type="button" href="http://localhost:8000/profile">@lang('messages.profile')</a>
-          <a class="dropdown-item" type="button" href="http://localhost:8000/logout">@lang('messages.exit')</a>
+          <a class="dropdown-item"  href="http://localhost:8000/profile">@lang('messages.profile')</a>
+          <a class="dropdown-item"  href="http://localhost:8000/logout">@lang('messages.exit')</a>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="http://localhost:8000/Budget">@lang('messages.budget')</a>
-  <a href="http://localhost:8000/statistics">@lang('messages.stats')</a>
+  {{-- <a href="http://localhost:8000/statistics">@lang('messages.stats')</a> --}}
   <a href=http://localhost:8000/about>@lang('messages.about')</a>
   @if (Auth::user() && Auth::user()->is_admin == true)
   <a href=http://localhost:8000/UserManagement>@lang('messages.usrmanage')</a>
@@ -96,7 +96,7 @@
 <button onclick="topFunction()" id="scrollBtn" class="btn  btn-outline-danger" title="Go to top">@lang('messages.top')</button>
 
 
-{{-- </div> --}}
+
 
 
 

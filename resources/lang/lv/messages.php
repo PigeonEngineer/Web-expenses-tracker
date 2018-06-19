@@ -64,4 +64,9 @@ return [
     'red' => 'Sarkans',
     'green' => 'Zaļš',
     'col' => 'Iestatīt fona krāsu',
+    //Registration
+    'login' => 'Pieslēgšanās',
+    'remember' => 'Atcerēties mani',
+    'forgot' => 'Aizmirsi paroli?',
+    'register' => 'Reģistrēties',
 ];

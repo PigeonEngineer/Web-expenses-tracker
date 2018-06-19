@@ -12,7 +12,7 @@ function setColors () {
 }
 window.onload = function() {
     setColors();
-    addCat(); 
+   
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
@@ -57,23 +57,7 @@ function changeColor (color) {
     return false;
 }
 
-function addCat() {
-     
-    // create a new div element 
-        // var newDiv = document.createElement("div");
-        // var newDiv2 = document.createElement("div"); 
-        // // and give it some content 
-        // newDiv.className='Jumbotron';
-        // newDiv2.className='Jumbotron';
-        // var newContent = document.createTextNode("Hi there and greetings!"); 
-        // // add the text node to the newly created div
-        // newDiv.appendChild(newContent);  
-      
-        // // add the newly created element and its content into the DOM 
-        // var element = document.getElementById("inserthere");
-        // element.appendChild(newDiv);   
-      
-}
+
 var pressed=false; 
 function text () {
     var text=document.getElementById('show');

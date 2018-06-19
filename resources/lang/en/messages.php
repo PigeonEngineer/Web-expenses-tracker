@@ -64,4 +64,10 @@ return [
     'red' => 'Red',
     'green' => 'Green',
     'col' => 'Set the background color',
+    //Registration
+    'login' => 'Login',
+    'remember' => 'Remember me',
+    'forgot' => 'Forgot your password?',
+    'register' => 'Register',
+    'green' => 'Green',
 ];

@@ -78,7 +78,7 @@ class BudgetController extends Controller
           $budget->save();
 
           // redirect
-          Session::flash('message', 'Successfully created Budget!');
+          Session::flash('message', 'Budget Created!');
           return Redirect::to("Budget");
       }
         //
@@ -178,7 +178,7 @@ class BudgetController extends Controller
             $Budget->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated budget!');
+            Session::flash('message', 'Budget updated!');
             return Redirect::to('Budget');
         }
     }
@@ -206,7 +206,7 @@ class BudgetController extends Controller
         $Budget->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the budget!');
+        Session::flash('message', 'Budget deleted!');
         return Redirect::to('Budget');
       }
       else

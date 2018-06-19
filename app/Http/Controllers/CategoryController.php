@@ -81,7 +81,7 @@ class CategoryController extends Controller
          $category_user->save();
 
           // redirect
-          Session::flash('message', 'Successfully created Budget!');
+          Session::flash('message', 'Category added!');
           return Redirect::to("Category");
       }
     }
@@ -168,7 +168,7 @@ class CategoryController extends Controller
           $category->save();
 
           // redirect
-          Session::flash('message', 'Successfully updated Expense!');
+          Session::flash('message', 'Category updated!');
           return Redirect::to('Category');
       }
     }
@@ -198,7 +198,7 @@ class CategoryController extends Controller
         $category->delete();
 
         // redirect
-        Session::flash('message', 'Successfully deleted the expense!');
+        Session::flash('message', 'Category deleted!');
         return Redirect::to('Category');
       }
       else
