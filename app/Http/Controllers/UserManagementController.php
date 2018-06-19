@@ -152,6 +152,8 @@ class UserManagementController extends Controller
     {
       // delete
       $user = User::find($id);
+      $user_expenses = Users_expense::where($user->id, '=', $id);
+      $user_expenses->delete();
       $user->delete();
 
       // redirect

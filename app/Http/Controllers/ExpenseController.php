@@ -52,7 +52,14 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('name','id');
+        $user_id = Auth::user()->id;
+        // $categories = Category::where('user_id','=',Auth::user()->id)->pluck('name','id');
+        $categories = DB::table('categories')
+        ->select('categories.name', 'categories.id')
+      ->join('users_categorys', 'categories.id', 'users_categorys.categorys_id')
+      ->where('users_categorys.users_id', '=', $user_id)
+      ->pluck('name', 'id');
+
         return View::make("Expense.create",compact('categories', $categories));
     }
 
