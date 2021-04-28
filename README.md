@@ -20,3 +20,5 @@ DB_PASSWORD = the password you went with for the db
   
  NOTES: if at 4.2 you get an saying something about mysql pdo, find your php.ini file and add the line:
  extension = php_pdo_mysql.dll
+
+Abandonware.
